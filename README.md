@@ -16,3 +16,7 @@ Valitse minkä nimen haluat asettaa tiedostolle ja minne haluat luoda tiedoston.
 [![Asennus](https://github.com/SavoniaUAS/DiVa-Sheets-ERP/blob/main/AsennusGif.gif?raw=true "Asennus")](https://github.com/SavoniaUAS/DiVa-Sheets-ERP/blob/main/AsennusGif.gif?raw=true "Asennus")
 
 Tämän jälkeen tiedosto löytyy Google Driven kansiosta jonne tiedosto on luotu.
+
+## Makrojen käyttöönotto
+
+[![Makrojen käyttöönotto](https://github.com/SavoniaUAS/DiVa-Sheets-ERP/blob/main/MakrojenEnablointi.gif "Makrojen käyttöönotto")](http://https://github.com/SavoniaUAS/DiVa-Sheets-ERP/blob/main/MakrojenEnablointi.gif "Makrojen käyttöönotto")
