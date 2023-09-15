@@ -14,3 +14,5 @@ Lukuversiossa mene Tiedosto/File kohtaan ja paina Make A Copy/Kopioi tiedosto.
 Valitse minkä nimen haluat asettaa tiedostolle ja minne haluat luoda tiedoston. 
 
 [![Asennus](https://github.com/SavoniaUAS/DiVa-Sheets-ERP/blob/main/AsennusGif.gif?raw=true "Asennus")](https://github.com/SavoniaUAS/DiVa-Sheets-ERP/blob/main/AsennusGif.gif?raw=true "Asennus")
+
+Tämän jälkeen tiedosto löytyy Google Driven kansiosta jonne tiedosto on luotu.
