@@ -1,5 +1,6 @@
 # DiVa-Sheets-ERP
-https://docs.google.com/spreadsheets/d/1EGJta1woZkMkD_UsaVuSANaqO89cCi8ZTut7JLaQwaE/edit?usp=sharing
+
+Tämä on käyttöönotto-ohje Savonia Ammattikorkeakoulun Digitalisaatio valmistavan teollisuuden yrityksissä-hankkeessa tuotettuun minimalistiseen Google Sheets-pohjaiseen toiminnanohjausjärjestelmään. Kyseisen toiminnanohjausjärjestelmän tarkoitus on simuloida teollista tilaus-tuotanto-toimitus-ketjua pienessä mittakaavassa. Sen lisäksi, että se on toimiva toiminnanohjausjärjestelmä, sen tarkoitus on myös toimia tietojärjestelmien hankintaprosessin kiintopisteenä, kun arvioidaan ostajan tarpeita liiketoimintaprosessien digitalisoimisessa.
 
 ## Uuden kansion luominen
 Luo Google Driveen uusi kansio ja nimeä se haluamallasi tavalla. Toiminnanohjausjärjestelmä tulee toimimaan kyseisessä kansiossa. Toiminnanohjausjärjestelmä luo kyseiseen kansioon myöhemmin alikansioita, jotka sisältävät toiminnanohjausjärjestelmän tuottamia tiedostoja.
@@ -26,7 +27,7 @@ Seuraavaksi sinun tulee ottaa käyttöön Sheets-tiedostoon integroidut skriptit
 
 Skriptien tarkoituksena on toteuttaa sovellukseen sisäisesti ohjelmoitu logiikka.
 
-Ottaaksesi käyttöön skriptit paina "Tyhjennä"-nappia Sheets-tiedoston Tarjouslaskenta-välilehdellä.
+Ottaaksesi käyttöön skriptit paina "Tyhjennä"-nappia Sheets-tiedoston Tarjouslaskenta-välilehdellä. Ensimmäistä kertaa nappia painaessasi, järjestelmällä voi kestää pieni hetki, jolloin se tarkistaa, onko napin painajalla lupa suorittaa toiminnanohjausjärjestelmän ohjelmakoodia.
 
 Ensimmäistä kertaa painaessi nappia, sinulta kysytään lupaa toiminnon suorittamiseksi (Authorisation Required). Luvan antamiseksi sinun tulee painaa "Continue/Jatka".
 
