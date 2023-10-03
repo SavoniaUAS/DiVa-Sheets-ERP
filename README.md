@@ -1,5 +1,5 @@
 # DiVa-Sheets-ERP
-https://docs.google.com/spreadsheets/d/1AfVhkyMyi9MdGUfA1wUpkYDIl7j0GjmE8QFjlOWmlK4/edit?usp=sharing
+https://docs.google.com/spreadsheets/d/1EGJta1woZkMkD_UsaVuSANaqO89cCi8ZTut7JLaQwaE/edit?usp=sharing
 
 ## Uuden kansion luominen
 Google Driveen on suositeltavaa lisätä uusi kansio, jonne toiminnanohjausjärjestelmä luodaan. Tämä tehdään sen takia, että tiedosto ja siihen myöhemmin luotavat PDF-kansiot ovat omassa kansiossaan
