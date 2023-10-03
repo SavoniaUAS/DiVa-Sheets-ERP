@@ -2,6 +2,10 @@
 
 Tämä on käyttöönotto-ohje Savonia Ammattikorkeakoulun Digitalisaatio valmistavan teollisuuden yrityksissä-hankkeessa tuotettuun minimalistiseen Google Sheets-pohjaiseen toiminnanohjausjärjestelmään. Kyseisen toiminnanohjausjärjestelmän tarkoitus on simuloida teollista tilaus-tuotanto-toimitus-ketjua pienessä mittakaavassa. Sen lisäksi, että se on toimiva toiminnanohjausjärjestelmä, sen tarkoitus on myös toimia tietojärjestelmien hankintaprosessin kiintopisteenä, kun arvioidaan ostajan tarpeita liiketoimintaprosessien digitalisoimisessa.
 
+Käyttöönottoon tarvitset
+ - Google-tilin, jonka alta löydät Google Sheets-työkalun.
+ - Google-sheets tiedoston, jossa toiminnanohjausjärjestelmän esimuotoillut taulukot sekä sovelluslogiikka sijaitsee. Kyseinen tiedosto löytyy myöhemmin ohjeesta siinä kohdassa, missä tarvitset sitä, sekä myös [tästä](https://docs.google.com/spreadsheets/d/1EGJta1woZkMkD_UsaVuSANaqO89cCi8ZTut7JLaQwaE/edit?usp=sharing)
+
 ## Uuden kansion luominen
 Luo Google Driveen uusi kansio ja nimeä se haluamallasi tavalla. Toiminnanohjausjärjestelmä tulee toimimaan kyseisessä kansiossa. Toiminnanohjausjärjestelmä luo kyseiseen kansioon myöhemmin alikansioita, jotka sisältävät toiminnanohjausjärjestelmän tuottamia tiedostoja.
 
