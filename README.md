@@ -7,11 +7,13 @@ Luo Google Driveen uusi kansio ja nimeä se haluamallasi tavalla. Toiminnanohjau
 [![Uuden kansion luominen Driveen](https://github.com/SavoniaUAS/DiVa-Sheets-ERP/blob/main/uusiKansio.gif "Uuden kansion luominen Driveen")](http://https://github.com/SavoniaUAS/DiVa-Sheets-ERP/blob/main/uusiKansio.gif "Uuden kansion luominen Driveen")
 
 ## Asennusohje
-Paina ylläolevaa linkkiä, joka vie sinut toiminnanohjausjärjestelmän lukuversioon.
+https://docs.google.com/spreadsheets/d/1EGJta1woZkMkD_UsaVuSANaqO89cCi8ZTut7JLaQwaE/edit?usp=sharing
 
-Lukuversiossa mene Tiedosto/File kohtaan ja paina Make A Copy/Kopioi tiedosto.
+Siirry ylläolevan linkin osoitteeseen. Osoite vie sinut toiminnanohjausjärjestelmän lukuversioon Google Sheets-palvelussa.
 
-Valitse minkä nimen haluat asettaa tiedostolle ja minne haluat luoda tiedoston. 
+Toiminnanohjausjärjestelmän lukuversiossa valitse Tiedosto/File-pudotusvalikosta Make A Copy/Kopioi tiedosto.
+
+Valitse minkä nimen haluat asettaa tiedostolle ja aseta se omassa Google Drivessäsi aiemmin lisäämääsi kansioon. 
 
 [![Asennus](https://github.com/SavoniaUAS/DiVa-Sheets-ERP/blob/main/AsennusGif.gif?raw=true "Asennus")](https://github.com/SavoniaUAS/DiVa-Sheets-ERP/blob/main/AsennusGif.gif?raw=true "Asennus")
 
