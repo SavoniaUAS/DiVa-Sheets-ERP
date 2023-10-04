@@ -15,7 +15,7 @@ Luo Google Driveen uusi kansio ja nimeä se haluamallasi tavalla. Toiminnanohjau
 
 Siirry seuraavaan verkko-osoitteeseen. Osoite vie sinut toiminnanohjausjärjestelmän lukuversioon Google Sheets-palvelussa.
 
-https://docs.google.com/spreadsheets/d/1EGJta1woZkMkD_UsaVuSANaqO89cCi8ZTut7JLaQwaE/edit?usp=sharing
+https://docs.google.com/spreadsheets/d/1YHWxt4u3BgW6lITTieDz6q-KDRBdQ0juuzuIW6Dz49U/edit?usp=sharing
 
 Toiminnanohjausjärjestelmän lukuversiossa valitse Tiedosto/File-pudotusvalikosta Make A Copy/Kopioi tiedosto.
 
