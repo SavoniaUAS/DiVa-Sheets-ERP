@@ -47,4 +47,34 @@ Nyt toiminnanohjausjärjestelmän skriptit ovat käytössä ja sen käyttö voi 
 
 [![Makrojen käyttöönotto](https://github.com/SavoniaUAS/DiVa-Sheets-ERP/blob/main/Gifs/MakrojenEnablointi.gif "Makrojen käyttöönotto")](http://https://github.com/SavoniaUAS/DiVa-Sheets-ERP/blob/main/MakrojenEnablointi.gif "Makrojen käyttöönotto")
 
-## Toiminnanohjausjärjestelmän käyttöohjeet
+# Toiminnanohjausjärjestelmän käyttöohjeet
+## Yleistä
+Kaikki painikkeet löytyvät samalta Tarjouslaskenta-välilehdeltä. Viikkojen kapasiteetit ja tuntien hinnat on määritelty valmiiksi Kapasiteetti- ja Tuntihinnat-välilehdillä.
+Asiakkaan tiedot
+Asiakaslista-välilehdelle pystytään lisäämään asiakkaan tiedot. Yhden asiakkaan tiedot lisätään yhdelle riville. 
+Kun asiakas tai asiakkaat on lisätty, voidaan Tarjouslaskenta-välilehdellä hakea asiakkaan tiedot automaattisesti painamalla Hae asiakas -painiketta. Kun painiketta painetaan, aukeaa ponnahdusikkuna, johon pyydetään syöttämään yrityksen nimi. Kun yrityksen nimi syötetään, sovellus hakee kyseisen asiakkaan tiedot asiakaslista -välilehdeltä. 
+
+## Tarjouksen rivien täyttäminen
+Tarjoukseen täytetään projektin tiedot. Harmaalla värjättyihin soluihin lasketaan hinnat automaattisesti. Myös rivillä 10 olevaan vihreällä värjättyyn yhteensä sarakkeeseen tulee laskujen yhteistulos automaattisesti. Riville tulee kaikkien täytettyjen kolumnien yhteenlasketut tiedot. Sovellus ei hyväksy tyhjiä rivejä tarjouslaskennan rivejä täytettäessä. Jos kolumni jää tyhjäksi, sen arvoksi lisätään 0, kun tarjous viedään tarjouslistaan.
+
+## Päivämäärät
+Päivämäärät pitää olla muodossa YYYY/MM/DD eli vuosi/kuukausi/päivä. Tarjouksen päivämäärän sovellus luo automaattisesti. Toimitusaika muunnetaan automaattisesti tarjouslistassa viikkonumeroksi.
+
+## Tarjouslista
+Tiedot siirretään tarjouslistaan Siirrä tarjouslistaan-nappia painamalla. Tarjous viedään tarjouslistan alimmaiseksi ja tarjouksen rivien viimeisin sarakekeen checkboxit ruksitaan automaattisesti. Täällä tarjous on tallessa sillä välin kun tarjous lähetetään asiakkaalle ja saadaan sille hyväksyntä. Jos tarjousta halutaan myöhemmin muokata, sen saa haettua projektinumeron avulla Tarjouslaskenta-välilehden Hae tarjouslistasta-painikkeen avulla. Tällöin ”Viimeisin” sarakkeen checkboxien ruksit otetaan automaattisesti pois vanhasta versiosta.
+Kun tarjousta on muokattu, pitää tarjous lisätä uudestaan tarjouslistaan  Siirrä tarjouslistaan-painikkeella, jolloin muokatusta tarjouksesta tulee uusi ”Viimeisin” tarjous. Myös vanha tarjous jää tarjouslistaan, jos sitä halutaan tarkastella myöhemmin.
+Luo tarjous, tilausvahvistus ja lähete
+Luo tarjous ja Luo tilausvahvistus-painikkeista asiakkaan tiedot, nimikkeet ja tarjouksen hinnat viedään Tarjous tai Tilausvahvistus-välilehdelle. Kun tilausvahvistus luodaaan tarjouslistan sarake ”Hyväksytty” ruksitaan automaattisesti. Kun lähete tehdään työlistan checkboxit ruksitaan automaattisesti.
+
+## Työlista
+Siirrä työlistaan-painikkeella projektin tiedot viedään Työlista-välilehdelle.  Työlista-välilehdellä voidaan määritellä, millä viikolla projektin eri vaiheet tehdään. Projektin voi merkitä aloitetuksi, valmiiksi tai myöhästyneeksi.
+Projektin työvaiheet menevät eri riveille, jotta työviikkojen täyttäminen pystytään jakamaan jokaiselle nimikkeelle erikseen.
+Kun tarjous viedään työlistaan, sovellus kysyy oletko vienyt viimeisimmän version tarjouslistaan. Tämä pitää tarkistaa, jotta työlistaan menevät oikeat tiedot. Tarjousta vietäessä työlistaan työlista käydään läpi duplikaattien varalta. Jos työlistassa on jo työ samalla projektinumerolla, ei sitä voi viedä sinne.
+
+## Työkortti
+Työkorttiin merkitään tehdyt tuntimäärät eri työvaiheille. Työvaiheita voi muokata mieleisekseen.
+Kun Työkortti-painiketta painetaan, viedään sinne tarjouksen asiakkaan tiedot ja projektin numero ja nimi, sekä toimitusaika.
+Tarjouksen nimikkeet lisätään osalistaan. Työlista on tarkoitettu tulostettavaksi ja työvaiheiden kestot on tarkoitus täyttää manuaalisesti.
+
+## Tyhjennys
+Tyhjennys-painikkeella tyhjennetään kaikki aikaisemmin täytetyt rivit, jotta täyttäminen voidaan aloittaa puhtaalta pöydältä. Tyhjennys ei hävitä kaavasarakkeita, eikä päivämääräsarakkeita. Päivämäärä-sarakkeiden arvot muuttuvat meneillään olevan päivän arvoksi.
