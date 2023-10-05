@@ -49,11 +49,15 @@ Nyt toiminnanohjausjärjestelmän skriptit ovat käytössä ja sen käyttö voi 
 
 # Toiminnanohjausjärjestelmän käyttöohjeet
 ## Yleistä
-Kaikki painikkeet löytyvät samalta Tarjouslaskenta-välilehdeltä. Viikkojen kapasiteetit ja tuntien hinnat on määritelty valmiiksi Kapasiteetti- ja Tuntihinnat-välilehdillä.
-Asiakkaan tiedot
+Kaikki painikkeet löytyvät samalta Tarjouslaskenta-välilehdeltä.
+## Käyttöönoton valmistelu
+Kapasiteeti-välilehdellä on valmis pohja viikkokohtaiselle kapasiteetin lisäämiselle. Tällä tarkoitetaan, kuinka paljon työkonetta voidaan kuormittaa viikkotasolla. ### Kapasiteetit täytyy lisätä itse, joka viikolle.
+Tuntihinnat välilehdellä määritellään eri työvaiheiden hinnat. Tuntihinnat täytyy määritellä itse. Tuntihinnat- välilehdellä olevat työvaiheet vastaavat Tarjouslaskenta-välilehdellä olevia työvaiheita. Tarjouslaskennan rivejä täytettäessä hinnat käydään hakemassa vastaavan työvaiheen perusteella Tuntihinnat-välilehdeltä. (Esim. Tarjouslaskennan Tyovaihe_1 vastaa Tuntihinnat-välilehden työ1-saraketta.) Tuntihinnat-välilehden Muutyö-sarake vastaa Tarjouslaskenta-välilehdellä Muu työ-saraketta. Otsikoita voidaan muuttaa kuvaamaan paremmin käyttötarpeita.
+
+## Asiakkaan tiedot
 Asiakaslista-välilehdelle pystytään lisäämään asiakkaan tiedot. Yhden asiakkaan tiedot lisätään yhdelle riville. 
 Kun asiakas tai asiakkaat on lisätty, voidaan Tarjouslaskenta-välilehdellä hakea asiakkaan tiedot automaattisesti painamalla Hae asiakas -painiketta. Kun painiketta painetaan, aukeaa ponnahdusikkuna, johon pyydetään syöttämään yrityksen nimi. Kun yrityksen nimi syötetään, sovellus hakee kyseisen asiakkaan tiedot asiakaslista -välilehdeltä. 
-
+[![Asiakkaan lisäys](https://github.com/SavoniaUAS/DiVa-Sheets-ERP/blob/main/Gifs/Käyttöohje/AsiakkaanHakeminen.gif?raw=true "Asiakkaan hakeminen")](https://github.com/SavoniaUAS/DiVa-Sheets-ERP/blob/main/AsennusGif.gif?raw=true "Asiakkaan hakeminen")
 ## Tarjouksen rivien täyttäminen
 Tarjoukseen täytetään projektin tiedot. Harmaalla värjättyihin soluihin lasketaan hinnat automaattisesti. Myös rivillä 10 olevaan vihreällä värjättyyn yhteensä sarakkeeseen tulee laskujen yhteistulos automaattisesti. Riville tulee kaikkien täytettyjen kolumnien yhteenlasketut tiedot. Sovellus ei hyväksy tyhjiä rivejä tarjouslaskennan rivejä täytettäessä. Jos kolumni jää tyhjäksi, sen arvoksi lisätään 0, kun tarjous viedään tarjouslistaan.
 
