@@ -1,0 +1,117 @@
+
+function saveTarjousPDF() {
+
+  var tarjousSheet = SpreadsheetApp.getActive().getSheetByName("Tarjous");
+  var projektinimi = tarjousSheet.getRange("D7").getValue();
+  var projektinumero = tarjousSheet.getRange("D6").getValue();
+  var response = Browser.msgBox('Haluatko luoda tarjous-PDF:n projektinumerolle ' + projektinumero + "?", Browser.Buttons.YES_NO);
+  if (response == "no") {
+    result = Browser.msgBox('PDF-tiedostoa ei luotu');
+    return;
+  }
+  else
+    var tarjouslaskenta = SpreadsheetApp.getActive();
+  var aika = new Date();
+  var pvm = Utilities.formatDate(aika, "GMT+1", "yyyy/MM/dd");
+  const id = SpreadsheetApp.getActive().getId();
+  console.log(id);
+  const url =
+    'https://docs.google.com/spreadsheets/d/' +
+    id +
+    '/export' +
+    '?format=pdf&gid=' +
+    tarjouslaskenta.getSheetByName("Tarjous").getSheetId()
+    + '&size=A4' // paper size legal / letter / A4
+    + '&portrait=true' // orientation, false for landscape
+    + '&scale=2'  // 1= Normal 100% / 2= Fit to width / 3= Fit to height / 4= Fit to Page
+    + '&fitw=true'                   // fit to width, false for actual size
+    + '&top_margin=0.25'              // All four margins must be set!
+    + '&bottom_margin=0.25'           // All four margins must be set!
+    + '&left_margin=0.25'             // All four margins must be set!
+    + '&right_margin=0.25'            // All four margins must be set!
+    + '&sheetnames=false&printtitle=false' // hide optional headers and footers
+    + '&pagenum=false&gridlines=false' // hide page numbers and gridlines
+    + '&fzr=false' // do not repeat row headers (frozen rows) on each page
+    + '&horizontal_alignment=CENTER' //LEFT/CENTER/RIGHT
+    + '&vertical_alignment=TOP'; //TOP/MIDDLE/
+  const res = UrlFetchApp.fetch(url, {
+    headers: { Authorization: 'Bearer ' + ScriptApp.getOAuthToken() },
+  });
+  var tarjousDuplicates = checkTarjousDuplicates();
+  console.log(tarjousDuplicates);
+  if (tarjousDuplicates > 0) {
+    var counter = tarjousDuplicates + 1;
+    getTarjousFolder_(projektinumero)
+      .createFile(res.getBlob().setName(pvm + "-Tarjous-" + projektinimi + "-" + counter));
+  }
+  else{
+     getTarjousFolder_(projektinumero)
+      .createFile(res.getBlob().setName(pvm + "-Tarjous-" + projektinimi));
+  }
+
+  Browser.msgBox("Tarjous-PDF luotu!");
+}
+
+function getTarjousFolder_(projektinumero) {
+  var tarjousSheet = SpreadsheetApp.getActive().getSheetByName("Tarjous");
+  var projektinumero = tarjousSheet.getRange("D6").getValue()
+  var asiakas = tarjousSheet.getRange("B7").getValue();
+  const ssId = SpreadsheetApp.getActiveSpreadsheet().getId();
+  const parentFolder = DriveApp.getFileById(ssId).getParents().next();
+
+  const subFolders = parentFolder.getFolders();
+  while (subFolders.hasNext()) {
+    let folder = subFolders.next();
+    if (folder.getName() === "Asiakkaat") {
+      var tarjousFolder = folder;
+      const tarjousAsiakasFolders = tarjousFolder.getFolders();
+      while (tarjousAsiakasFolders.hasNext()) {
+        let tarjous = tarjousAsiakasFolders.next();
+        if (tarjous.getName() == asiakas) {
+          var asiakasFolder = tarjous;
+          const projektinumeroFolder = asiakasFolder.getFolders();
+          while (projektinumeroFolder.hasNext()) {
+            let tarjousDestination = projektinumeroFolder.next();
+            if (tarjousDestination == projektinumero) {
+
+              return tarjousDestination
+            }
+
+          }
+          return asiakasFolder.createFolder(projektinumero);
+        }
+
+      }
+      return tarjousFolder.createFolder(asiakas).createFolder(projektinumero);
+    }
+
+  }
+  return parentFolder.createFolder("Asiakkaat");
+
+}
+
+function checkTarjousDuplicates() {
+  var tarjousSheet = SpreadsheetApp.getActive().getSheetByName("Tarjous");
+  var projektinimi = tarjousSheet.getRange("D7").getValue();
+  var projektinumero = tarjousSheet.getRange("D6").getValue();
+  var folder = getTarjousFolder_(projektinumero);
+  var names = [];
+  var files = folder.searchFiles(`title contains "-Tarjous-${projektinimi}"`)
+  while (files.hasNext()) {
+    var file = files.next();
+    var name = file.getName();
+    names.push(name);
+  }
+  for (var i = 0; i < names.length; i++) {
+    console.log(names[i]);
+  }
+
+  return names.length;
+}
+
+
+
+
+
+
+

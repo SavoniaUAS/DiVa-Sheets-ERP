@@ -1,0 +1,256 @@
+function luoLahete() {
+
+  var response = Browser.msgBox('Luo lähete?', Browser.Buttons.YES_NO);
+  if (response == "no") {
+    result = Browser.msgBox('Lähetettä ei luotu');
+    return;
+  }
+  else
+
+    var response = Browser.msgBox("Tilaus merkitään toimitetuksi työlistassa. Oletko varma?", Browser.Buttons.YES_NO);
+  if (response == "yes") {
+    try {
+      tyhjennaLeima();
+    }
+    catch (err) {
+      console.log("Yritystietoja ei löydetty");
+    }
+    tyhjennys();
+    var tarjouslaskenta = SpreadsheetApp.getActive().getSheetByName("Tarjouslaskenta");
+    var lahete = SpreadsheetApp.getActive().getSheetByName("Lähete");
+
+    //Määritellään minkä kolumnien tietoja viedään tarjouslaskennasta
+    var laskentasheet = tarjouslaskenta.getRange('A13:C13');
+
+    var laheteSheet = lahete.getRange('B20');
+
+    var setFont = lahete.getRange('B20:D20');
+    var asiakasFont = lahete.getRange('A6:A14');
+    var asiakasTiedot = lahete.getRange('B6:B14');
+    var tiedotFont = lahete.getRange('C6:C10');
+    var projektiTiedot = lahete.getRange('D6:D10');
+
+
+    var tarjoussheet = tarjouslaskenta.getRange('A13');
+    var rivit = tarjoussheet.getDataRegion(SpreadsheetApp.Dimension.ROWS);
+    var rivimaara = rivit.getValues().length - 1;
+
+    laskentasheet.getDataRegion(SpreadsheetApp.Dimension.ROWS).copyTo(laheteSheet);
+    var posRow = 21;
+    var posCount = 10
+    
+    for (var i = 0; i < rivimaara; i++) {
+      var position = "POS " + posCount;
+      lahete.getRange(posRow, 1, 1, 1).setValue(position);
+      posRow = posRow + 1;
+      posCount = posCount + 10;
+    }
+
+    var alue = laheteSheet.getDataRegion(SpreadsheetApp.Dimension.COLUMNS).
+      getDataRegion(SpreadsheetApp.Dimension.ROWS).offset(1, 0, rivimaara);
+    var nimikeAlue = laheteSheet.getDataRegion(SpreadsheetApp.Dimension.COLUMNS).
+      getDataRegion(SpreadsheetApp.Dimension.ROWS).offset(0, 1, rivimaara + 1, 1);
+    console.log(nimikeAlue.getValues());
+    alue.clearFormat();
+    setFont.clearFormat();
+    alue.setFontFamily("Comfortaa");
+    setFont.setFontFamily("Comfortaa");
+    alue.setHorizontalAlignment('center');
+    setFont.setHorizontalAlignment('center');
+    nimikeAlue.setHorizontalAlignment('left');
+    //Laitetaan lihavoitu fontti Lähete-välilehden taulukon otsikoille
+    setFont.setFontWeight("bold");
+    asiakastToLahete();
+
+    asiakasFont.setFontWeight("bold").setHorizontalAlignment('right');
+    tiedotFont.setFontWeight("bold").setHorizontalAlignment('right');
+    asiakasTiedot.setHorizontalAlignment('left');
+    projektiTiedot.setHorizontalAlignment('left');
+  }
+  else {
+    Browser.msgBox("Lähetettä ei tehty");
+    return;
+  }
+
+  var yritysleima = SpreadsheetApp.getActive().getSheetByName("Yritystiedot");
+  var yritystiedot1 = yritysleima.getRange("B2").getDataRegion(SpreadsheetApp.Dimension.ROWS);
+  var yritystiedot1Rivit = yritystiedot1.getValues().length;
+  var yritystiedot1Alue = yritystiedot1.offset(0, 0, yritystiedot1Rivit, 1).setHorizontalAlignment('left');
+  console.log(yritystiedot1.getValues());
+
+  var yritystiedot2 = yritysleima.getRange("D2").getDataRegion(SpreadsheetApp.Dimension.ROWS);
+  var yritystiedot2Rivit = yritystiedot2.getValues().length;
+  var yritystiedot2Alue = yritystiedot2.offset(0, 0, yritystiedot2Rivit, 1);
+
+  yritystiedot1Alue.copyTo(lahete.getRange('A20').getNextDataCell(SpreadsheetApp.Direction.DOWN).offset(15, 0).setFontFamily("Comfortaa").setBackground("white").setHorizontalAlignment('left'))
+
+  yritystiedot2Alue.copyTo(lahete.getRange('A20').getNextDataCell(SpreadsheetApp.Direction.DOWN).offset(15, 1).setFontFamily("Comfortaa").setBackground("white").setHorizontalAlignment('left'))
+
+  function tyhjennys() {
+    var lahete = SpreadsheetApp.getActive().getSheetByName("Lähete");
+    var laheteTyhjennys = lahete.getRange('A20');
+    var tyhjennysRivit = laheteTyhjennys.getDataRegion(SpreadsheetApp.Dimension.ROWS);
+
+    //Tarjouksen rivimäärien luku
+    var tyhjennysRivimaara = tyhjennysRivit.getValues().length - 1;
+    //Jos rivejä on 0 niin tyhjennystä ei suoriteta
+    if (tyhjennysRivimaara != 0) {
+      //Tarjouksen koko alue
+      var alue = laheteTyhjennys.getDataRegion(SpreadsheetApp.Dimension.COLUMNS).
+        getDataRegion(SpreadsheetApp.Dimension.ROWS).offset(1, 0, tyhjennysRivimaara);
+
+      //Tyhjennetään alue
+      alue.clearContent().setBackground("white");
+
+    }
+  }
+
+  checkBoxes();
+  toimitusDate();
+
+  Browser.msgBox("Lähete luotu!");
+}
+
+
+async function asiakastToLahete() {
+
+  //tarjouslaskenta-välilehti
+  var tarjouslaskenta = SpreadsheetApp.getActive().getSheetByName("Tarjouslaskenta");
+  //lähete-välilehti
+  var lahete = SpreadsheetApp.getActive().getSheetByName("Lähete");
+
+  //Määritellään minkä kolumnien tietoja viedään tarjouslaskennasta 
+  var asiakasTiedot = tarjouslaskenta.getRange("A2").getDataRegion(SpreadsheetApp.Dimension.ROWS);
+  var asiakasRivit = asiakasTiedot.getValues().length;
+  console.log(asiakasTiedot.getValues());
+  var asiakasAlue = asiakasTiedot.offset(1,0,asiakasRivit,2);
+
+  //Haetaan projektinumero, projektinimi ja asiakkaan viite
+  var laskentaTiedot = tarjouslaskenta.getRange("C1").getDataRegion(SpreadsheetApp.Dimension.ROWS);
+  var laskentaRivit = laskentaTiedot.getValues().length;
+  var laskentaAlue = laskentaTiedot.offset(0,0,laskentaRivit,2);
+
+  //Määritellään minne kohtaan Lähete-välilehteä tiedot kopioidaan
+  var laheteAsiakas = lahete.getRange('A6');
+  var laheteTiedot = lahete.getRange('C6');
+
+  asiakasAlue.copyTo(laheteAsiakas);
+  laskentaAlue.copyTo(laheteTiedot);
+
+  lahete.getRange('A6').getDataRegion(SpreadsheetApp.Dimension.ROWS).setHorizontalAlignment('right').setFontWeight('bold').setFontFamily('Comfortaa').setBackground('white');
+  lahete.getRange('C6').getDataRegion(SpreadsheetApp.Dimension.ROWS).setHorizontalAlignment('right').setFontWeight('bold').setFontFamily('Comfortaa').setBackground('white');
+  lahete.getRange('B6').getDataRegion(SpreadsheetApp.Dimension.ROWS).setHorizontalAlignment('left').setFontFamily('Comfortaa').setBackground('white');
+  lahete.getRange('D6').getDataRegion(SpreadsheetApp.Dimension.ROWS).setHorizontalAlignment('left').setFontFamily('Comfortaa').setBackground('white');
+  lahete.getRange("C10").setValue("Toimituspvm:");
+  var tanaan = new Date();
+  lahete.getRange("D10").setValue(tanaan);
+}
+
+async function toimitusDate() {
+  var tarjouslaskenta = SpreadsheetApp.getActive().getSheetByName("Tarjouslaskenta");
+  var tyolista = SpreadsheetApp.getActive().getSheetByName("Työlista");
+  var projektinumero = tarjouslaskenta.getRange('D1').getValue();
+   var toimitusPvm = new Date();
+  var data = Utilities.formatDate(toimitusPvm, "GMT", "dd" + '/' + "MM" + '/' + "yyyy");
+  var numberFinder = tyolista.createTextFinder(projektinumero);
+  var tyolistasheet = tyolista.getRange("A2");
+  var tyolistarivit = tyolistasheet.getDataRegion(SpreadsheetApp.Dimension.ROWS);
+
+  var listarivimaara = tyolistarivit.getValues().length - 1;
+  var counter = 0
+  try {
+    var searchRow = numberFinder.findNext().getRow();
+    for (var i = 0; i < listarivimaara; i++) {
+      var projektinumerovalue = tyolista.getRange(searchRow, 1, 1, 1).getValues();
+      if (projektinumerovalue[0][0] === projektinumero) {
+         tyolista.getRange(searchRow, 19, 1, 1).setValue(data);
+        counter = counter + 1;
+      }
+      else {
+        if (projektinumero !== projektinumerovalue && counter > 0) {
+          break;
+        }
+        searchRow = numberFinder.findNext().getRow();
+        
+      }
+      searchRow = searchRow + 1
+    }
+
+  }
+  catch (e) {
+    console.log(e);
+    return;
+  }
+}
+async function checkBoxes() {
+  var tarjouslaskenta = SpreadsheetApp.getActive().getSheetByName("Tarjouslaskenta");
+  var tyolista = SpreadsheetApp.getActive().getSheetByName("Työlista");
+  var projektinumero = tarjouslaskenta.getRange('D1').getValue();
+
+  var numberFinder = tyolista.createTextFinder(projektinumero);
+  var tyolistasheet = tyolista.getRange("A2");
+  var tyolistarivit = tyolistasheet.getDataRegion(SpreadsheetApp.Dimension.ROWS);
+
+  var listarivimaara = tyolistarivit.getValues().length - 1;
+  var counter = 0
+  try {
+    var searchRow = numberFinder.findNext().getRow();
+    for (var i = 0; i < listarivimaara; i++) {
+      var projektinumerovalue = tyolista.getRange(searchRow, 1, 1, 1).getValues();
+      if (projektinumerovalue[0][0] == projektinumero) {
+        tyolista.getRange(searchRow, 13, 1, 1).check();
+        tyolista.getRange(searchRow, 14, 1, 1).check();
+        tyolista.getRange(searchRow, 15, 1, 1).check();
+        
+        counter = counter + 1;
+      }
+      else {
+        searchRow = numberFinder.findNext().getRow();
+        if (projektinumero !== projektinumerovalue && counter > 0) {
+          break;
+        }
+      }
+      searchRow = searchRow + 1
+    }
+
+  }
+  catch (e) {
+    console.log(e);
+    Browser.msgBox("Projektinumeroa ei löytynyt");
+    return;
+  }
+}
+
+
+async function tyhjennaLeima() {
+  var lahete = SpreadsheetApp.getActive().getSheetByName("Lähete");
+  var start = lahete.getRange("A20").getDataRegion(SpreadsheetApp.Dimension.ROWS);
+  
+  var row = start.getRow();
+  var rowEnd = row + start.getValues().length;
+  var dest;
+  var startRow = row + (rowEnd -row);
+  for (var i = 0; i < 50; i++) {
+    var value = lahete.getRange(startRow,1).getValue();
+    if (value != "Yhteensä (alv 0%)"&& value != "Yhteensä (alv 24%)") {
+      if(value === ""){
+        startRow = startRow + 1;
+        continue;
+      }
+      dest = lahete.getRange(startRow, 1, 1, 1);
+      console.log(value);
+      break;
+
+    }
+    startRow = startRow + 1;
+  }
+
+ 
+  var tyhjennysRivit = dest.getDataRegion(SpreadsheetApp.Dimension.ROWS).getValues().length;
+  var tyhjennysAlue = dest.getDataRegion(SpreadsheetApp.Dimension.ROWS).offset(0,0,tyhjennysRivit,2);
+  tyhjennysAlue.clearContent().clearFormat();
+
+}
+
+
+

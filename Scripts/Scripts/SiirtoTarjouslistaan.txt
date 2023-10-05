@@ -1,0 +1,210 @@
+function tietojenSiirto() {
+  var response = Browser.msgBox('Vie tarjous tarjouslistaan?', Browser.Buttons.YES_NO);
+  if (response == "no") {
+    result = Browser.msgBox('Tarjousta ei viety');
+    return;
+  }
+  else
+    var tarjouslaskenta = SpreadsheetApp.getActive().getSheetByName("Tarjouslaskenta");
+  var tarjouslista = SpreadsheetApp.getActive().getSheetByName("Tarjouslista");
+  var sheet = tarjouslaskenta.getRange('A13');//aktivoidaan varmasti oikea välilehti
+  var tarjouslistasheet = tarjouslista.getRange('A2');
+
+  var rivit = sheet.getDataRegion(SpreadsheetApp.Dimension.ROWS);//valitaan rivit, joissa on tietoa
+
+  var rivi_lkm = rivit.getNumRows() - 1;//lasketaan rivit - 1 eli ylin rivi
+  var tarjousrivinro = 13;
+  var column = 1;
+
+  for (var i = 0; i < rivi_lkm; i++) {
+    for (var j = 0; j < 18; j++) {
+      var nullCheck = tarjouslaskenta.getRange(tarjousrivinro, column, 1, 1);
+      if (nullCheck.isBlank()) {
+        nullCheck.setValue(0);
+      }
+      column = column + 1;
+    }
+    column = 1;
+    tarjousrivinro = tarjousrivinro + 1;
+  }
+
+  var destination = tarjouslista.getRange('A2').getNextDataCell(SpreadsheetApp.Direction.DOWN).offset(1, 0);
+  var row = destination.getRow()
+
+  if (tarjouslistasheet.getValue() == "") {
+    row = 2;
+    destination = tarjouslista.getRange(2, 10);
+    cbDestination = tarjouslista.getRange(2, 8);
+    destination.setBackground("#ffe599");
+    insertPerustiedot();
+    tarjouslista.getRange(row, 8, rivi_lkm, 1).insertCheckboxes().check();
+    tarjouslista.getRange(row, 9, rivi_lkm, 1).insertCheckboxes();
+    Browser.msgBox("Tarjous viety");
+  }
+  else {
+    nopeaTiedonSiirto()
+
+    Browser.msgBox("Tarjous viety");
+
+  }
+}
+function insertPerustiedot() {
+  var tarjouslaskenta = SpreadsheetApp.getActive().getSheetByName("Tarjouslaskenta");
+  var tarjouslista = SpreadsheetApp.getActive().getSheetByName("Tarjouslista");
+  var projektinumero = tarjouslaskenta.getRange("D1").getValue();
+  var asiakasnumero = tarjouslaskenta.getRange("B1").getValue();
+  var asiakas = tarjouslaskenta.getRange("B2").getValue();
+  var projektinimi = tarjouslaskenta.getRange("D2").getValue();
+  var asiakasViite = tarjouslaskenta.getRange("D3").getValue();
+  var pvm = Utilities.formatDate(new Date(), "GMT+1", "yyyy/MM/dd");
+  var toimitus = tarjouslaskenta.getRange("D5").getValue();
+  var toimituspvm = Utilities.formatDate(toimitus, "GMT", "w");
+  var sheet = tarjouslaskenta.getRange('A13');
+  var rivit = sheet.getDataRegion(SpreadsheetApp.Dimension.ROWS);//valitaan rivit, joissa on tietoa
+  var destination = tarjouslista.getRange('A2').getNextDataCell(SpreadsheetApp.Direction.DOWN).offset(1, 0);
+  var tarjouslistasheet = tarjouslista.getRange('A2');
+
+  var rivi_lkm = rivit.getNumRows() - 1;
+  var row = destination.getRow()
+  if (tarjouslistasheet.getValue() == "") {
+    row = 2;
+    destination = tarjouslista.getRange(row, 1);
+  }
+  
+
+  
+
+  for (var i = 0; i < rivi_lkm; i++) {
+    tarjouslista.getRange(row, 1, 1, 9).setBackground("#b6d7a8");
+    tarjouslista.getRange(row, 10, 1, 12).setBackground("#ffe599");
+    tarjouslista.getRange(row, 22, 1, 6).setBackground("#6d9eeb");
+    tarjouslista.getRange(row, 27, 1, 1).setBackground("#ea9999");
+    // #e6b8af
+    destination = tarjouslista.getRange(row, 1);
+    destination.setValue(projektinumero);
+    destination = tarjouslista.getRange(row, 2);
+    destination.setValue(asiakasnumero);
+    destination = tarjouslista.getRange(row, 3);
+    destination.setValue(asiakas);
+    destination = tarjouslista.getRange(row, 4);
+    destination.setValue(asiakasViite);
+    destination = tarjouslista.getRange(row, 5);
+    destination.setValue(projektinimi);
+    destination = tarjouslista.getRange(row, 6);
+    destination.setValue(pvm);
+    destination = tarjouslista.getRange(row, 7);
+    destination.setValue(toimituspvm);
+
+    row = row + 1;
+  }
+  var kolumnit = sheet.getDataRegion(SpreadsheetApp.Dimension.COLUMNS);
+  var kolumni_lkm = kolumnit.getNumColumns();
+  var tarjousAlue = sheet.getDataRegion(SpreadsheetApp.Dimension.COLUMNS).
+    getDataRegion(SpreadsheetApp.Dimension.ROWS).offset(1, 0, rivi_lkm, kolumni_lkm);
+  tarjousAlue.copyTo(tarjouslista.getRange(2, 10, 1, kolumni_lkm), { contentsOnly: true });
+  tarjouslista.getRange(row, 1, 1, 27).setBorder(true, false, false, false, false, false);
+}
+function uncheckBoxes() {
+  var tarjouslaskenta = SpreadsheetApp.getActive().getSheetByName("Tarjouslaskenta");
+  var tarjouslista = SpreadsheetApp.getActive().getSheetByName("Tarjouslista");
+  var projektinumero = tarjouslaskenta.getRange("D1").getValue();
+  var tarjouslistasheet = tarjouslista.getRange("A2");
+  var tarjouslistarivit = tarjouslistasheet.getDataRegion(SpreadsheetApp.Dimension.ROWS);
+  var listarivimaara = tarjouslistarivit.getValues().length - 1;
+  var numberFinder = tarjouslista.createTextFinder(projektinumero);
+  var checkboxAloitusRow = 0;
+  var checkboxLopetusRow = 0;
+  try {
+    var searchRow = numberFinder.findNext().getRow();
+    var projektinumerovalue = tarjouslista.getRange(searchRow, 1, 1, 1).getValue();
+
+    for (var i = 0; i < listarivimaara; i++) {
+      if (tarjouslista.getRange(searchRow, 8, 1, 1).isChecked() == true && projektinumero == projektinumerovalue) {
+        var checkboxAloitusRow = searchRow;
+        break;
+      }
+      else {
+
+        searchRow = numberFinder.findNext().getRow();
+        projektinumerovalue = tarjouslista.getRange(searchRow, 1, 1, 1).getValue();
+      }
+    }
+    while (tarjouslista.getRange(searchRow, 8, 1, 1).isChecked() == true && projektinumero == projektinumerovalue) {
+      searchRow++;
+    }
+    checkboxLopetusRow = searchRow;
+    var checkBoxRows = checkboxLopetusRow - checkboxAloitusRow;
+    tarjouslista.getRange(checkboxAloitusRow, 8, checkBoxRows, 1).setValue(false);
+  }
+  catch (e) {
+    return;
+  }
+
+}
+
+
+function nopeaTiedonSiirto() {
+  uncheckBoxes();
+  var tarjouslaskentasheet = SpreadsheetApp.getActive().getSheetByName("Tarjouslaskenta");
+  var tarjouslaskenta = tarjouslaskentasheet.getRange("A13");
+  var tarjouslista = SpreadsheetApp.getActive().getSheetByName("Tarjouslista");
+  var range = tarjouslaskentasheet.getRange("B1:B8");
+  var range2 = tarjouslaskentasheet.getRange("D1:D6")
+  var values = range.getValues();
+  var values2 = range2.getValues();
+  //Tarjouslaskentarivit
+  var rivit = tarjouslaskenta.getDataRegion(SpreadsheetApp.Dimension.ROWS);//valitaan rivit, joissa on tietoa
+  var rivi_lkm = rivit.getNumRows() - 1;//lasketaan rivit - 1 eli ylin rivi
+
+  var list = []
+  var sortList = []
+  list.push(values)
+  list.push(values2)
+  var pvm = values2[5].toString();
+  pvm = new Date(pvm);
+  var tarjouspvm = Utilities.formatDate(pvm, "GMT +1", "yyyy/MM/dd");
+  var dd = tarjouspvm.split("/");
+  var ddFormat = parseInt(dd[2])
+  ddFormat = ddFormat + 1;
+  tarjouspvm = dd[0] + "/" + dd[1] + "/" + ddFormat.toString()
+  var vko = values2[4].toString();
+
+  vko = new Date(vko);
+  var tarjousviikko = Utilities.formatDate(vko, "GMT", "w");
+  sortList.push(values2[0], values[0], values[1], values2[2], values2[1], tarjouspvm, tarjousviikko)
+
+  var valuesList = [];
+  for (var i = 0; i < rivi_lkm; i++) {
+    valuesList.push(sortList);
+  }
+
+  var tarjouslistarivit = tarjouslista.getRange("A1");
+  var listarivit = tarjouslistarivit.getDataRegion(SpreadsheetApp.Dimension.ROWS);//valitaan rivit, joissa on tietoa
+  var listarivi_lkm = listarivit.getNumRows()
+
+  var kolumnit = tarjouslaskenta.getDataRegion(SpreadsheetApp.Dimension.COLUMNS);
+  var kolumni_lkm = kolumnit.getNumColumns();
+
+  var tarjousAlue = tarjouslaskentasheet.getRange('A13').getDataRegion(SpreadsheetApp.Dimension.COLUMNS).
+    getDataRegion(SpreadsheetApp.Dimension.ROWS).offset(1, 0, rivi_lkm, kolumni_lkm);//valitaan kopioitava alue
+  tarjouslista.insertRowAfter(listarivi_lkm)
+  var lastRow = listarivi_lkm;
+
+  tarjouslista.getRange(listarivi_lkm + 1, 1, rivi_lkm, sortList.length).setValues(valuesList);
+  tarjouslista.getRange(listarivi_lkm + 1,8,rivi_lkm,1).insertCheckboxes().check();
+  tarjouslista.getRange(listarivi_lkm + 1,9,rivi_lkm,1).insertCheckboxes();
+  tarjousAlue.copyTo(tarjouslista.getRange(lastRow + 1, 10, 1, kolumni_lkm), { contentsOnly: true });
+
+  tarjouslista.getRange(lastRow + 1, 1, 1, 27).setBorder(true, false, false, false, false, false);
+
+  tarjouslista.getRange(listarivi_lkm + 1, 1, rivi_lkm, sortList.length +2).setBackground("#b6d7a8");
+  tarjouslista.getRange(listarivi_lkm + 1, 10, rivi_lkm, 12).setBackground("#ffe599");
+  tarjouslista.getRange(listarivi_lkm + 1, 22, rivi_lkm, 6).setBackground("#6d9eeb");
+  tarjouslista.getRange(listarivi_lkm + 1, 27, rivi_lkm, 1).setBackground("#ea9999");
+  
+}
+
+
+
+
+

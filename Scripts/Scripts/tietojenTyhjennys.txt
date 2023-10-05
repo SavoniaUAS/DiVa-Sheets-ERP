@@ -1,0 +1,37 @@
+function tietojenTyhjennys(){
+var ui = SpreadsheetApp.getUi();
+var response = ui.alert('Oletko varma?', ui.ButtonSet.YES_NO);
+
+// Process the user's response.
+if (response == ui.Button.YES) {
+  //Logger.log('The user clicked "Yes."');
+var asiakasTiedot = SpreadsheetApp.getActive().getSheetByName("Tarjouslaskenta").getRange('B1');
+var asiakasRivit = asiakasTiedot.getDataRegion(SpreadsheetApp.Dimension.ROWS);//valitaan rivit, joissa on tietoa
+asiakasRivit.clearContent();
+
+
+var tilausTiedot = SpreadsheetApp.getActive().getSheetByName("Tarjouslaskenta").getRange('D1');
+var tilausRivit = tilausTiedot.getDataRegion(SpreadsheetApp.Dimension.ROWS);//valitaan rivit, joissa on tietoa
+tilausRivit.clearContent()
+var pvmTiedot = SpreadsheetApp.getActive().getSheetByName("Tarjouslaskenta").getRange('D6');
+var pvmRivit = pvmTiedot.getDataRegion(SpreadsheetApp.Dimension.ROWS);//valitaan rivit, joissa on tietoa
+pvmRivit.clearContent()
+projektiTyhjennys();
+SpreadsheetApp.getActive().getSheetByName("Tarjouslaskenta").getRange('D5:D6').setValue(new Date());
+}
+else
+Logger.log('Tyhjennys peruttu');
+}
+
+
+function projektiTyhjennys(){
+var projektiTiedot = SpreadsheetApp.getActive().getSheetByName("Tarjouslaskenta").getRange('A13:L13');
+var kate = SpreadsheetApp.getActive().getSheetByName("Tarjouslaskenta").getRange('Q13:R13');
+//Rivien lukumäärä
+var rivi_lkm = projektiTiedot.getDataRegion(SpreadsheetApp.Dimension.ROWS).getValues().length;
+var kate_lkm = kate.getDataRegion(SpreadsheetApp.Dimension.ROWS).getValues().length;
+var projektiRivit = projektiTiedot.getDataRegion(SpreadsheetApp.Dimension.ROWS).offset(1,0,rivi_lkm);//valitaan rivit, joissa on tietoa
+projektiRivit.clearContent();
+var kateRivit = kate.getDataRegion(SpreadsheetApp.Dimension.ROWS).offset(1,0,kate_lkm);
+kateRivit.clearContent();
+}
