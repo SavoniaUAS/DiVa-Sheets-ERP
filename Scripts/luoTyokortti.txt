@@ -1,0 +1,168 @@
+async function luoTyokortti() {
+  var response = Browser.msgBox('Luo Työkortti?', Browser.Buttons.YES_NO);
+  if (response == "no") {
+    result = Browser.msgBox('Työkorttia ei luotu');
+    return;
+  }
+  else
+    try {
+      tyhjennaPvm();
+    }
+    catch (err) {
+      console.log("Yritystietoja ei löydetty");
+    }
+  tyokorttiTyhjennys();
+  osalistaTyhjennys();
+  var tarjouslaskenta = SpreadsheetApp.getActive().getSheetByName("Tarjouslaskenta");
+  var tyokortti = SpreadsheetApp.getActive().getSheetByName("Työkortti");
+
+  //Määritellään minkä kolumnien tietoja viedään tarjouslaskennasta
+  var laskentasheet = tarjouslaskenta.getRange('A12:C13');
+  var nimikeSheet = tyokortti.getRange('R4');
+  var otsikko = tyokortti.getRange("J1:K2");
+  otsikko.merge();
+  otsikko.setValue("Työkortti").setHorizontalAlignment('center').setFontWeight('bold').setFontSize("30").setFontFamily('Comfortaa')
+  //Kopioidaan halutut tiedot Tarjouslaskenta-välilehdeltä tyokortti-välilehdelle
+  laskentasheet.getDataRegion(SpreadsheetApp.Dimension.ROWS).copyTo(nimikeSheet);
+
+  asiakastToTyokortti();
+  tyokorttiPositio();
+  muotoileTyokortti();
+  Browser.msgBox("Työkortti on luotu.");
+
+}
+function tyokorttiTyhjennys() {
+  var tyokortti = SpreadsheetApp.getActive().getSheetByName("Työkortti");
+  var tyokorttiTyhjennys = tyokortti.getRange('A1:O13');
+  tyokorttiTyhjennys.clearContent().setBackground('white').clearFormat();
+
+  tyokortti.getRange('B40:O47').clearContent();
+
+}
+
+function osalistaTyhjennys() {
+  var tyokortti = SpreadsheetApp.getActive().getSheetByName("Työkortti");
+  if (tyokortti.getRange('R4').getValue != null) {
+    var tyokorttiTyhjennys = tyokortti.getRange('R4');
+    var tyhjennysRivit = tyokorttiTyhjennys.getDataRegion(SpreadsheetApp.Dimension.ROWS);
+    var tyhjennysRivimaara = tyhjennysRivit.getValues().length;
+    if (tyhjennysRivimaara != 0) {
+      tyokorttiTyhjennys.offset(0,-1, tyhjennysRivimaara, 4).clearContent().clearFormat().setBackground('white');
+    }
+    var position = tyokortti.getRange("Q5").getDataRegion(SpreadsheetApp.Dimension.ROWS);
+    var positionRivit = position.getValues().length;
+    position.offset(0, 0, positionRivit, 4).clearContent().clearFormat().setBackground('white');
+  }
+}
+function tyokorttiPositio() {
+
+  //Tarjouslaskenta
+  var tarjouslaskenta = SpreadsheetApp.getActive().getSheetByName("Tarjouslaskenta");
+  var tarjouslaskentasheet = tarjouslaskenta.getRange('A13');
+  var rivit = tarjouslaskentasheet.getDataRegion(SpreadsheetApp.Dimension.ROWS);
+  var rivimaara = rivit.getValues().length - 1;
+  console.log(rivimaara);
+  var tarjouslaskentarow = tarjouslaskentasheet.getRow();
+  console.log(tarjouslaskentarow);
+  //Tarjous
+  var tyokortti = SpreadsheetApp.getActive().getSheetByName("Työkortti");
+  var tyokorttiStart = tyokortti.getRange("R5");
+  var tyokorttirow = tyokorttiStart.getRow();
+
+  var posCount = 10;
+  var posRow = 5;
+
+  for (var i = 0; i < rivimaara; i++) {
+
+    var pos = "POS " + posCount;
+
+    posStart = tyokortti.getRange("Q" + posRow).setValue(pos).setFontFamily("Comfortaa").setFontWeight("bold");
+
+    posRow = posRow + 1;
+    posCount = posCount + 10;
+    tarjouslaskentarow = tarjouslaskentarow + 1;
+    tyokorttirow = tyokorttirow + 1;
+  }
+
+}
+
+
+function asiakastToTyokortti() {
+  var tarjouslaskenta = SpreadsheetApp.getActive().getSheetByName("Tarjouslaskenta");
+  var tyokortti = SpreadsheetApp.getActive().getSheetByName("Työkortti");
+
+  //Määritellään minkä kolumnien tietoja viedään tarjouslaskennasta
+  var laskentaAsiakas = tarjouslaskenta.getRange('A1');
+  var projektiTiedot = tarjouslaskenta.getRange("C1");
+
+  //Määritellään minne kohtaan tyokortti-välilehteä tiedot kopioidaan
+  var asiakasAlue = tyokortti.getRange("A6:O6");
+  var tkAsiakas = tyokortti.getRange('A6:B6');
+  var tkProjekti = tyokortti.getRange("H6");
+  var tkProjektiTiedot = tyokortti.getRange("L6");
+  laskentaAsiakas.getDataRegion(SpreadsheetApp.Dimension.ROWS).offset(1, 0, 8, 2).copyTo(tkAsiakas);
+  projektiTiedot.getDataRegion(SpreadsheetApp.Dimension.ROWS).offset(0, 0, 3, 1).copyTo(tkProjekti);
+  projektiTiedot.getDataRegion(SpreadsheetApp.Dimension.ROWS).offset(0, 1, 3, 1).copyTo(tkProjektiTiedot);
+  var tyokorttiAlue = asiakasAlue.getDataRegion(SpreadsheetApp.Dimension.ROWS);
+  tyokorttiAlue.clearFormat();
+  tyokortti.getRange("H10").setValue("Toimitusaika (vk):");
+  var tarjousDate = tarjouslaskenta.getRange("D5").getValue();
+  var data = Utilities.formatDate(tarjousDate, "GMT", "ww");
+
+  tyokortti.getRange("L10").setValue(data.toString());
+  tyokortti.getRange(13, 1, 1, 2).clearContent();
+  tyokortti.getRange(11, 3, 1, 2).clearContent();
+
+}
+
+
+
+function muotoileTyokortti() {
+
+  //Tarjouslaskennan tiedot
+  var tarjouslaskenta = SpreadsheetApp.getActive().getSheetByName("Tarjouslaskenta");
+  var tarjoussheet = tarjouslaskenta.getRange('A13');
+  var tarjousrivit = tarjoussheet.getDataRegion(SpreadsheetApp.Dimension.ROWS);
+  var rivimaara = tarjousrivit.getValues().length - 1;
+
+  //Työkortin tiedot ja muotoiltavat alueet
+  var tyokortti = SpreadsheetApp.getActive().getSheetByName("Työkortti");
+  var muotoileOsalista = tyokortti.getRange('Q4');
+  tyokortti.setColumnWidth(18,200);
+  var osaAlue = muotoileOsalista.getDataRegion(SpreadsheetApp.Dimension.COLUMNS).
+    getDataRegion(SpreadsheetApp.Dimension.ROWS).offset(1, 0, rivimaara, 4);
+  var nimikeAlue = muotoileOsalista.getDataRegion(SpreadsheetApp.Dimension.COLUMNS).
+    getDataRegion(SpreadsheetApp.Dimension.ROWS).offset(0, 1, 1, 3);
+
+  var tyokorttiAsiakas = tyokortti.getRange('A2');
+  var tyokorttiAlue = tyokorttiAsiakas.getDataRegion(SpreadsheetApp.Dimension.ROWS);
+  var asiakasOtsikot = tyokortti.getRange('A6:A12');
+  var tilausOtsikot = tyokortti.getRange('H6:H10');
+  var asiakasTiedot = tyokortti.getRange('B6:B12');
+  var tilausTiedot = tyokortti.getRange('L6:L10');
+
+  //Työkortin muotoilut
+  tyokorttiAlue.setFontFamily('Comfortaa');
+  asiakasOtsikot.setHorizontalAlignment('right').setFontWeight("bold").setFontSize(15).setFontFamily("Comfortaa");
+  tilausOtsikot.setHorizontalAlignment('left').setFontWeight("bold").setFontSize(15).setFontFamily("Comfortaa");
+  asiakasTiedot.setHorizontalAlignment('left').setFontSize(15).setFontFamily("Comfortaa");
+  tilausTiedot.setHorizontalAlignment('left').setFontSize(15).setFontFamily("Comfortaa");
+  osaAlue.setHorizontalAlignment('center').setBorder(true, true, true, true, true, true).setFontSize(12);
+  nimikeAlue.setFontFamily("Comfortaa").setFontWeight('bold').setHorizontalAlignment('center').setFontSize(14).setBackground("white").setBorder(true,true,true,true,true,true);
+  var asiakas = tyokortti.getRange('A6');
+  var asiakasMuotoilu = asiakas.getDataRegion(SpreadsheetApp.Dimension.COLUMNS).getDataRegion(SpreadsheetApp.Dimension.ROWS).offset(0, 1, 1, 15);
+  var projektiMuotoilu = asiakas.getDataRegion(SpreadsheetApp.Dimension.COLUMNS).getDataRegion(SpreadsheetApp.Dimension.ROWS).offset(0, 7, 1, 15);
+  var projektiTiedotMuotoilu = asiakas.getDataRegion(SpreadsheetApp.Dimension.COLUMNS).getDataRegion(SpreadsheetApp.Dimension.ROWS).offset(0, 11, 1, 15);
+  var offsetCounter = 0
+  for (var i = 0; i < 7; i++) {
+    asiakas = tyokortti.getRange("A6");
+    asiakasMuotoilu = asiakas.getDataRegion(SpreadsheetApp.Dimension.COLUMNS).getDataRegion(SpreadsheetApp.Dimension.ROWS).offset(offsetCounter, 1, 1, 6);
+    projektiMuotoilu = asiakas.getDataRegion(SpreadsheetApp.Dimension.COLUMNS).getDataRegion(SpreadsheetApp.Dimension.ROWS).offset(offsetCounter, 7, 1, 4);
+    projektiTiedotMuotoilu = asiakas.getDataRegion(SpreadsheetApp.Dimension.COLUMNS).getDataRegion(SpreadsheetApp.Dimension.ROWS).offset(offsetCounter, 11, 1, 4);
+    asiakasMuotoilu.merge();
+    projektiMuotoilu.merge();
+    projektiTiedotMuotoilu.merge();
+    offsetCounter = offsetCounter + 1;
+  }
+
+}
