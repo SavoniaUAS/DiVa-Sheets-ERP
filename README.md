@@ -46,3 +46,5 @@ Valitse näkymästä nappi "Allow / Salli"
 Nyt toiminnanohjausjärjestelmän skriptit ovat käytössä ja sen käyttö voi alkaa.
 
 [![Makrojen käyttöönotto](https://github.com/SavoniaUAS/DiVa-Sheets-ERP/blob/main/Gifs/MakrojenEnablointi.gif "Makrojen käyttöönotto")](http://https://github.com/SavoniaUAS/DiVa-Sheets-ERP/blob/main/MakrojenEnablointi.gif "Makrojen käyttöönotto")
+
+## Toiminnanohjausjärjestelmän käyttöohjeet
