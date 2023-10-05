@@ -57,7 +57,7 @@ Tuntihinnat välilehdellä määritellään eri työvaiheiden hinnat. Tuntihinna
 ## Asiakkaan tiedot
 Asiakaslista-välilehdelle pystytään lisäämään asiakkaan tiedot. Yhden asiakkaan tiedot lisätään yhdelle riville. 
 Kun asiakas tai asiakkaat on lisätty, voidaan Tarjouslaskenta-välilehdellä hakea asiakkaan tiedot automaattisesti painamalla Hae asiakas -painiketta. Kun painiketta painetaan, aukeaa ponnahdusikkuna, johon pyydetään syöttämään yrityksen nimi. Kun yrityksen nimi syötetään, sovellus hakee kyseisen asiakkaan tiedot asiakaslista -välilehdeltä. 
-[![Asiakkaan lisäys](https://github.com/SavoniaUAS/DiVa-Sheets-ERP/blob/main/Gifs/Käyttöohje/AsiakkaanHakeminen.gif?raw=true "Asiakkaan hakeminen")](https://github.com/SavoniaUAS/DiVa-Sheets-ERP/blob/main/AsennusGif.gif?raw=true "Asiakkaan hakeminen")
+[![Asiakkaan lisäys](https://github.com/SavoniaUAS/DiVa-Sheets-ERP/blob/main/Gifs/Käyttöohje/AsiakkaanHakeminen.gif?raw=true "Asiakkaan hakeminen")](https://github.com/SavoniaUAS/DiVa-Sheets-ERP/blob/main/Gifs/Käyttöohje/AsennusGif.gif?raw=true "Asiakkaan hakeminen")
 ## Tarjouksen rivien täyttäminen
 Tarjoukseen täytetään projektin tiedot. Harmaalla värjättyihin soluihin lasketaan hinnat automaattisesti. Myös rivillä 10 olevaan vihreällä värjättyyn yhteensä sarakkeeseen tulee laskujen yhteistulos automaattisesti. Riville tulee kaikkien täytettyjen kolumnien yhteenlasketut tiedot. Sovellus ei hyväksy tyhjiä rivejä tarjouslaskennan rivejä täytettäessä. Jos kolumni jää tyhjäksi, sen arvoksi lisätään 0, kun tarjous viedään tarjouslistaan.
 
@@ -69,7 +69,7 @@ Tiedot siirretään tarjouslistaan Siirrä tarjouslistaan-nappia painamalla. Tar
 Kun tarjousta on muokattu, pitää tarjous lisätä uudestaan tarjouslistaan  Siirrä tarjouslistaan-painikkeella, jolloin muokatusta tarjouksesta tulee uusi ”Viimeisin” tarjous. Myös vanha tarjous jää tarjouslistaan, jos sitä halutaan tarkastella myöhemmin.
 Luo tarjous, tilausvahvistus ja lähete
 Luo tarjous ja Luo tilausvahvistus-painikkeista asiakkaan tiedot, nimikkeet ja tarjouksen hinnat viedään Tarjous tai Tilausvahvistus-välilehdelle. Kun tilausvahvistus luodaaan tarjouslistan sarake ”Hyväksytty” ruksitaan automaattisesti. Kun lähete tehdään työlistan checkboxit ruksitaan automaattisesti.
-
+[![Tarjouslistaan vienti](https://github.com/SavoniaUAS/DiVa-Sheets-ERP/blob/main/Gifs/Käyttöohje/SiirtoTarjouslistaan.gif?raw=true "Tarjouslistaan vienti")](https://github.com/SavoniaUAS/DiVa-Sheets-ERP/blob/main/Gifs/Käyttöohje/SiirtoTarjouslistaan.gif?raw=true "Tarjouslistaan vienti")
 ## Työlista
 Siirrä työlistaan-painikkeella projektin tiedot viedään Työlista-välilehdelle.  Työlista-välilehdellä voidaan määritellä, millä viikolla projektin eri vaiheet tehdään. Projektin voi merkitä aloitetuksi, valmiiksi tai myöhästyneeksi.
 Projektin työvaiheet menevät eri riveille, jotta työviikkojen täyttäminen pystytään jakamaan jokaiselle nimikkeelle erikseen.
