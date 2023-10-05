@@ -74,6 +74,7 @@ Luo tarjous ja Luo tilausvahvistus-painikkeista asiakkaan tiedot, nimikkeet ja t
 Siirrä työlistaan-painikkeella projektin tiedot viedään Työlista-välilehdelle.  Työlista-välilehdellä voidaan määritellä, millä viikolla projektin eri vaiheet tehdään. Projektin voi merkitä aloitetuksi, valmiiksi tai myöhästyneeksi.
 Projektin työvaiheet menevät eri riveille, jotta työviikkojen täyttäminen pystytään jakamaan jokaiselle nimikkeelle erikseen.
 Kun tarjous viedään työlistaan, sovellus kysyy oletko vienyt viimeisimmän version tarjouslistaan. Tämä pitää tarkistaa, jotta työlistaan menevät oikeat tiedot. Tarjousta vietäessä työlistaan työlista käydään läpi duplikaattien varalta. Jos työlistassa on jo työ samalla projektinumerolla, ei sitä voi viedä sinne.
+[![Työlistaan vienti](https://github.com/SavoniaUAS/DiVa-Sheets-ERP/blob/main/Gifs/Käyttöohje/SiirtoTarjouslistaan.gif?raw=true "Työlistaan vienti")](https://github.com/SavoniaUAS/DiVa-Sheets-ERP/blob/main/Gifs/Käyttöohje/SiirtoTarjouslistaan.gif?raw=true "Työlistaan vienti")
 
 ## Työkortti
 Työkorttiin merkitään tehdyt tuntimäärät eri työvaiheille. Työvaiheita voi muokata mieleisekseen.
