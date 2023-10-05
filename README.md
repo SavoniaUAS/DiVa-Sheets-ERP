@@ -58,7 +58,14 @@ Yritystiedot-välilehdellä käydään täyttämässä yrityksen tiedot, sekä t
 
 ## Asiakkaan tiedot
 Asiakaslista-välilehdelle pystytään lisäämään asiakkaan tiedot. Yhden asiakkaan tiedot lisätään yhdelle riville. Asiakkaat täytyy lisätä riveille, niin ettei asiakaslistaan muodostu tyhjiä rivejä. Jos lista sisältää tyhiä rivejä asiakkaiden välillä, asiakkaiden hakeminen ei onnistu.
-❌![Asiakaslistan täyttö.](https://github.com/SavoniaUAS/DiVa-Sheets-ERP/blob/main/Kuvat/AsiakaslistaVaarin.PNG "Asiakaslsita vaarin") ❌
+
+:white_check_mark:
+![Asiakaslistan täyttö.](https://github.com/SavoniaUAS/DiVa-Sheets-ERP/blob/main/Kuvat/AsiakasListaOikein.PNG "Asiakaslista oikein") 
+
+
+:x:
+![Asiakaslistan täyttö.](https://github.com/SavoniaUAS/DiVa-Sheets-ERP/blob/main/Kuvat/AsiakasListaVaarin.PNG "Asiakaslista vaarin") 
+
 Kun asiakas tai asiakkaat on lisätty, voidaan Tarjouslaskenta-välilehdellä hakea asiakkaan tiedot automaattisesti painamalla Hae asiakas -painiketta. Kun painiketta painetaan, aukeaa ponnahdusikkuna, johon pyydetään syöttämään yrityksen nimi. Kun yrityksen nimi syötetään, sovellus hakee kyseisen asiakkaan tiedot asiakaslista -välilehdeltä.
 
 [![Asiakkaan lisäys](https://github.com/SavoniaUAS/DiVa-Sheets-ERP/blob/main/Gifs/Käyttöohje/AsiakkaanHakeminen.gif?raw=true "Asiakkaan hakeminen")](https://github.com/SavoniaUAS/DiVa-Sheets-ERP/blob/main/Gifs/Käyttöohje/AsennusGif.gif?raw=true "Asiakkaan hakeminen")
