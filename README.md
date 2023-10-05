@@ -50,14 +50,18 @@ Nyt toiminnanohjausjärjestelmän skriptit ovat käytössä ja sen käyttö voi 
 # Toiminnanohjausjärjestelmän käyttöohjeet
 ## Yleistä
 Kaikki painikkeet löytyvät samalta Tarjouslaskenta-välilehdeltä.
+
 ## Käyttöönoton valmistelu
 Kapasiteeti-välilehdellä on valmis pohja viikkokohtaiselle kapasiteetin lisäämiselle. Tällä tarkoitetaan, kuinka paljon työkonetta voidaan kuormittaa viikkotasolla. ### Kapasiteetit täytyy lisätä itse, joka viikolle.
 Tuntihinnat välilehdellä määritellään eri työvaiheiden hinnat. Tuntihinnat täytyy määritellä itse. Tuntihinnat- välilehdellä olevat työvaiheet vastaavat Tarjouslaskenta-välilehdellä olevia työvaiheita. Tarjouslaskennan rivejä täytettäessä hinnat käydään hakemassa vastaavan työvaiheen perusteella Tuntihinnat-välilehdeltä. (Esim. Tarjouslaskennan Tyovaihe_1 vastaa Tuntihinnat-välilehden työ1-saraketta.) Tuntihinnat-välilehden Muutyö-sarake vastaa Tarjouslaskenta-välilehdellä Muu työ-saraketta. Otsikoita voidaan muuttaa kuvaamaan paremmin käyttötarpeita.
+Yritystiedot-välilehdellä käydään täyttämässä yrityksen tiedot, sekä toimitusehdot. Yrityksen tiedot haetaan tarjoukseen, lähetteeseen ja tilausvahvistukseen.
 
 ## Asiakkaan tiedot
 Asiakaslista-välilehdelle pystytään lisäämään asiakkaan tiedot. Yhden asiakkaan tiedot lisätään yhdelle riville. 
-Kun asiakas tai asiakkaat on lisätty, voidaan Tarjouslaskenta-välilehdellä hakea asiakkaan tiedot automaattisesti painamalla Hae asiakas -painiketta. Kun painiketta painetaan, aukeaa ponnahdusikkuna, johon pyydetään syöttämään yrityksen nimi. Kun yrityksen nimi syötetään, sovellus hakee kyseisen asiakkaan tiedot asiakaslista -välilehdeltä. 
+Kun asiakas tai asiakkaat on lisätty, voidaan Tarjouslaskenta-välilehdellä hakea asiakkaan tiedot automaattisesti painamalla Hae asiakas -painiketta. Kun painiketta painetaan, aukeaa ponnahdusikkuna, johon pyydetään syöttämään yrityksen nimi. Kun yrityksen nimi syötetään, sovellus hakee kyseisen asiakkaan tiedot asiakaslista -välilehdeltä.
+
 [![Asiakkaan lisäys](https://github.com/SavoniaUAS/DiVa-Sheets-ERP/blob/main/Gifs/Käyttöohje/AsiakkaanHakeminen.gif?raw=true "Asiakkaan hakeminen")](https://github.com/SavoniaUAS/DiVa-Sheets-ERP/blob/main/Gifs/Käyttöohje/AsennusGif.gif?raw=true "Asiakkaan hakeminen")
+
 ## Tarjouksen rivien täyttäminen
 Tarjoukseen täytetään projektin tiedot. Harmaalla värjättyihin soluihin lasketaan hinnat automaattisesti. Myös rivillä 10 olevaan vihreällä värjättyyn yhteensä sarakkeeseen tulee laskujen yhteistulos automaattisesti. Riville tulee kaikkien täytettyjen kolumnien yhteenlasketut tiedot. Sovellus ei hyväksy tyhjiä rivejä tarjouslaskennan rivejä täytettäessä. Jos kolumni jää tyhjäksi, sen arvoksi lisätään 0, kun tarjous viedään tarjouslistaan.
 
@@ -67,14 +71,31 @@ Päivämäärät pitää olla muodossa YYYY/MM/DD eli vuosi/kuukausi/päivä. Ta
 ## Tarjouslista
 Tiedot siirretään tarjouslistaan Siirrä tarjouslistaan-nappia painamalla. Tarjous viedään tarjouslistan alimmaiseksi ja tarjouksen rivien viimeisin sarakekeen checkboxit ruksitaan automaattisesti. Täällä tarjous on tallessa sillä välin kun tarjous lähetetään asiakkaalle ja saadaan sille hyväksyntä. Jos tarjousta halutaan myöhemmin muokata, sen saa haettua projektinumeron avulla Tarjouslaskenta-välilehden Hae tarjouslistasta-painikkeen avulla. Tällöin ”Viimeisin” sarakkeen checkboxien ruksit otetaan automaattisesti pois vanhasta versiosta.
 Kun tarjousta on muokattu, pitää tarjous lisätä uudestaan tarjouslistaan  Siirrä tarjouslistaan-painikkeella, jolloin muokatusta tarjouksesta tulee uusi ”Viimeisin” tarjous. Myös vanha tarjous jää tarjouslistaan, jos sitä halutaan tarkastella myöhemmin.
-Luo tarjous, tilausvahvistus ja lähete
-Luo tarjous ja Luo tilausvahvistus-painikkeista asiakkaan tiedot, nimikkeet ja tarjouksen hinnat viedään Tarjous tai Tilausvahvistus-välilehdelle. Kun tilausvahvistus luodaaan tarjouslistan sarake ”Hyväksytty” ruksitaan automaattisesti. Kun lähete tehdään työlistan checkboxit ruksitaan automaattisesti.
+
 [![Tarjouslistaan vienti](https://github.com/SavoniaUAS/DiVa-Sheets-ERP/blob/main/Gifs/Käyttöohje/SiirtoTarjouslistaan.gif?raw=true "Tarjouslistaan vienti")](https://github.com/SavoniaUAS/DiVa-Sheets-ERP/blob/main/Gifs/Käyttöohje/SiirtoTarjouslistaan.gif?raw=true "Tarjouslistaan vienti")
+
+## Luo tarjous, tilausvahvistus ja lähete
+### Tarjous
+Kun tarjouslaskenta-välilehden rivit on täytetty ja tarjous on viety tarjouslistaan voi tarjouksen viedä sen jälkeen tarjous-välilehdelle. Tarjous-välilehti sisältää Asiakkaan ja projektin tiedot sekä toimitusajat. Tarjoukseen tulee myös nimikkeet ja hinnat, sekä toiminnanohjausjärjestelmän käyttöönotossa määritelty yritysleima (Kts. käyttöönoton valmistelu), joka sisältää yrityksen tiedot.
+
+[![Tarjous](https://github.com/SavoniaUAS/DiVa-Sheets-ERP/blob/main/Gifs/Käyttöohje/LuoTarjous.gif?raw=true "Tarjouslistaan vienti")](https://github.com/SavoniaUAS/DiVa-Sheets-ERP/blob/main/Gifs/Käyttöohje/LuoTarjous.gif?raw=true "Tarjous")
+
+### Tilausvahvistus
+Tilausvahvistus luodaan silloin, kun tarjoukselle on saatu hyväksyntä. Kun tarjous vieään Tilausvahvistus-välilehdelle, sovellus käy ruksimassa tarjouslistasta "Hyväksytty"-sarakkeen. Tilausvahvistus-välilehti sisältää samat tiedot kuin tarjous-välilehti.
+
+[![Tilausvahvistus](https://github.com/SavoniaUAS/DiVa-Sheets-ERP/blob/main/Gifs/Käyttöohje/LuoTilausvahvistus.gif?raw=true "Tilausvahvistus")](https://github.com/SavoniaUAS/DiVa-Sheets-ERP/blob/main/Gifs/Käyttöohje/LuoTilausvahvistus.gif?raw=true "Tilausvahvistus")
+
+### Lähete
+Kun tarjouksen kaikki työvaiheet on valmiita voidaan tarjouksen tiedot viedä Lähete-välilehdelle. Lähete-välilehti sisältää samat tiedot kuin Tarjous- ja Tilausvahvistus-välilehdet, mutta projektin tiedoissa näkyy ainoastaan sovittu toimituspäivämäärä.
+
+[![Lähete](https://github.com/SavoniaUAS/DiVa-Sheets-ERP/blob/main/Gifs/Käyttöohje/LuoLähete.gif?raw=true "Lähete")](https://github.com/SavoniaUAS/DiVa-Sheets-ERP/blob/main/Gifs/Käyttöohje/LuoLähete.gif?raw=true "Lähete")
+
 ## Työlista
 Siirrä työlistaan-painikkeella projektin tiedot viedään Työlista-välilehdelle.  Työlista-välilehdellä voidaan määritellä, millä viikolla projektin eri vaiheet tehdään. Projektin voi merkitä aloitetuksi, valmiiksi tai myöhästyneeksi.
 Projektin työvaiheet menevät eri riveille, jotta työviikkojen täyttäminen pystytään jakamaan jokaiselle nimikkeelle erikseen.
 Kun tarjous viedään työlistaan, sovellus kysyy oletko vienyt viimeisimmän version tarjouslistaan. Tämä pitää tarkistaa, jotta työlistaan menevät oikeat tiedot. Tarjousta vietäessä työlistaan työlista käydään läpi duplikaattien varalta. Jos työlistassa on jo työ samalla projektinumerolla, ei sitä voi viedä sinne.
-[![Työlistaan vienti](https://github.com/SavoniaUAS/DiVa-Sheets-ERP/blob/main/Gifs/Käyttöohje/SiirtoTarjouslistaan.gif?raw=true "Työlistaan vienti")](https://github.com/SavoniaUAS/DiVa-Sheets-ERP/blob/main/Gifs/Käyttöohje/SiirtoTarjouslistaan.gif?raw=true "Työlistaan vienti")
+
+[![Työlistaan vienti](https://github.com/SavoniaUAS/DiVa-Sheets-ERP/blob/main/Gifs/Käyttöohje/VieTyoListaan.gif?raw=true "Työlistaan vienti")](https://github.com/SavoniaUAS/DiVa-Sheets-ERP/blob/main/Gifs/Käyttöohje/VieTyoListaan.gif?raw=true "Työlistaan vienti")
 
 ## Työkortti
 Työkorttiin merkitään tehdyt tuntimäärät eri työvaiheille. Työvaiheita voi muokata mieleisekseen.
