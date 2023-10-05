@@ -52,12 +52,12 @@ Nyt toiminnanohjausjärjestelmän skriptit ovat käytössä ja sen käyttö voi 
 Kaikki painikkeet löytyvät samalta Tarjouslaskenta-välilehdeltä.
 
 ## Käyttöönoton valmistelu
-Kapasiteeti-välilehdellä on valmis pohja viikkokohtaiselle kapasiteetin lisäämiselle. Tällä tarkoitetaan, kuinka paljon työkonetta voidaan kuormittaa viikkotasolla. ### Kapasiteetit täytyy lisätä itse, joka viikolle.
-Tuntihinnat välilehdellä määritellään eri työvaiheiden hinnat. Tuntihinnat täytyy määritellä itse. Tuntihinnat- välilehdellä olevat työvaiheet vastaavat Tarjouslaskenta-välilehdellä olevia työvaiheita. Tarjouslaskennan rivejä täytettäessä hinnat käydään hakemassa vastaavan työvaiheen perusteella Tuntihinnat-välilehdeltä. (Esim. Tarjouslaskennan Tyovaihe_1 vastaa Tuntihinnat-välilehden työ1-saraketta.) Tuntihinnat-välilehden Muutyö-sarake vastaa Tarjouslaskenta-välilehdellä Muu työ-saraketta. Otsikoita voidaan muuttaa kuvaamaan paremmin käyttötarpeita.
+Kapasiteeti-välilehdellä on valmis pohja viikkokohtaiselle kapasiteetin lisäämiselle. Tällä tarkoitetaan, kuinka paljon työkonetta voidaan kuormittaa viikkotasolla. <strong> Kapasiteetit täytyy lisätä itse, joka viikolle</strong>.
+Tuntihinnat välilehdellä määritellään eri työvaiheiden hinnat. <strong>Tuntihinnat täytyy määritellä itse</strong>. Tuntihinnat- välilehdellä olevat työvaiheet vastaavat Tarjouslaskenta-välilehdellä olevia työvaiheita. Tarjouslaskennan rivejä täytettäessä hinnat käydään hakemassa vastaavan työvaiheen perusteella Tuntihinnat-välilehdeltä. (Esim. Tarjouslaskennan Tyovaihe_1 vastaa Tuntihinnat-välilehden työ1-saraketta.) Tuntihinnat-välilehden Muutyö-sarake vastaa Tarjouslaskenta-välilehdellä Muu työ-saraketta. Otsikoita voidaan muuttaa kuvaamaan paremmin käyttötarpeita.
 Yritystiedot-välilehdellä käydään täyttämässä yrityksen tiedot, sekä toimitusehdot. Yrityksen tiedot haetaan tarjoukseen, lähetteeseen ja tilausvahvistukseen.
 
 ## Asiakkaan tiedot
-Asiakaslista-välilehdelle pystytään lisäämään asiakkaan tiedot. Yhden asiakkaan tiedot lisätään yhdelle riville. 
+Asiakaslista-välilehdelle pystytään lisäämään asiakkaan tiedot. Yhden asiakkaan tiedot lisätään yhdelle riville. Asiakkaat täytyy lisätä riveille, niin ettei asiakaslistaan muodostu tyhjiä rivejä. Jos lista sisältää tyhiä rivejä asiakkaiden välillä, asiakkaiden hakeminen ei onnistu.
 Kun asiakas tai asiakkaat on lisätty, voidaan Tarjouslaskenta-välilehdellä hakea asiakkaan tiedot automaattisesti painamalla Hae asiakas -painiketta. Kun painiketta painetaan, aukeaa ponnahdusikkuna, johon pyydetään syöttämään yrityksen nimi. Kun yrityksen nimi syötetään, sovellus hakee kyseisen asiakkaan tiedot asiakaslista -välilehdeltä.
 
 [![Asiakkaan lisäys](https://github.com/SavoniaUAS/DiVa-Sheets-ERP/blob/main/Gifs/Käyttöohje/AsiakkaanHakeminen.gif?raw=true "Asiakkaan hakeminen")](https://github.com/SavoniaUAS/DiVa-Sheets-ERP/blob/main/Gifs/Käyttöohje/AsennusGif.gif?raw=true "Asiakkaan hakeminen")
