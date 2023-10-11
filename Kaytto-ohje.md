@@ -65,3 +65,7 @@ Tarjouksen nimikkeet lisätään osalistaan. Työlista on tarkoitettu tulostetta
 Päivämääräsoluja voi muuttaa kalenterinäkymässä kaksoisklikkaamalla kyseistä solua.
 
 ![Kalenterinäkymä.](https://github.com/SavoniaUAS/DiVa-Sheets-ERP/blob/main/Kuvat/pvmClick.PNG "Kalenterinäkymä") 
+
+Ctrl + Z näppäinyhdistelmällä pääsee kumoamaan viimeisimmät muutokset.
+
+
