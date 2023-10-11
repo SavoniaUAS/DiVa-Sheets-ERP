@@ -60,3 +60,7 @@ Kun tarjous viedään työlistaan, sovellus kysyy oletko vienyt viimeisimmän ve
 Työkorttiin merkitään tehdyt tuntimäärät eri työvaiheille. Työvaiheita voi muokata mieleisekseen.
 Kun Työkortti-painiketta painetaan, viedään sinne tarjouksen asiakkaan tiedot ja projektin numero ja nimi, sekä toimitusaika.
 Tarjouksen nimikkeet lisätään osalistaan. Työlista on tarkoitettu tulostettavaksi ja työvaiheiden kestot on tarkoitus täyttää manuaalisesti.
+
+## Quality of life
+Päivämääräsoluja voi muuttaa kalenterinäkymässä kaksoisklikkaamalla kyseistä solua.
+
