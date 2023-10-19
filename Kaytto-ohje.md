@@ -1,11 +1,64 @@
 # Toiminnanohjausjärjestelmän käyttöohjeet
 ## Yleistä
-Kaikki painikkeet löytyvät samalta Tarjouslaskenta-välilehdeltä.
+Järjestelmän keskeiset toiminnot löytyvät Tarjouslaskenta-välilehdeltä. Sarakkeiden otsikoita ja värejä voi muuttaa. Listoissa odotetaan että listat jatkuvat saman muotoisina käytännössä loputtomasti alaspäin jatkuvina riveinä. Tämän vuoksi älä vaihda sarakkeiden paikkoja, sillä sovelluslogiikka odottaa tiettyjen sarakkeiden ja rivien pysyvän paikoillaan. Sarakkeita voi halutessaan värittää ja kuvia voi lisätä. Jos välttämättä haluat muuttaa sovelluksen ulkoasua, piilota haluamasi sarakkeet pois näkyvistä.
 
 ## Käyttöönoton valmistelu
-Kapasiteeti-välilehdellä on valmis pohja viikkokohtaiselle kapasiteetin lisäämiselle. Tällä tarkoitetaan, kuinka paljon työkonetta voidaan kuormittaa viikkotasolla. <strong> Kapasiteetit täytyy lisätä itse, joka viikolle</strong>.
-Tuntihinnat välilehdellä määritellään eri työvaiheiden hinnat. <strong>Tuntihinnat täytyy määritellä itse</strong>. Tuntihinnat- välilehdellä olevat työvaiheet vastaavat Tarjouslaskenta-välilehdellä olevia työvaiheita. Tarjouslaskennan rivejä täytettäessä hinnat käydään hakemassa vastaavan työvaiheen perusteella Tuntihinnat-välilehdeltä. (Esim. Tarjouslaskennan Tyovaihe_1 vastaa Tuntihinnat-välilehden työ1-saraketta.) Tuntihinnat-välilehden Muutyö-sarake vastaa Tarjouslaskenta-välilehdellä Muu työ-saraketta. Otsikoita voidaan muuttaa kuvaamaan paremmin käyttötarpeita.
-Yritystiedot-välilehdellä käydään täyttämässä yrityksen tiedot, sekä toimitusehdot. Yrityksen tiedot haetaan tarjoukseen, lähetteeseen ja tilausvahvistukseen.
+Käy läpi järjestelmän välilehdet ja kokeile kuinka se toimii. Voit käyttöönoton päätteeksi poistaa Tarjouslista-, Työlista- ja Asiakaslista-välilehdiltä esimerkkitiedot sekä vaihtaa Yritystiedot-, Tilausvahvistus-, Työkortti- sekä Tarjous-välilehdille oman yrityksesi tiedot. 
+
+(mitä muuta pitää muuttaa jos haluaa ottaa käyttöön?)
+
+Voit muuttaa otsikoita kuvaamaan paremmin työvaiheita ja käyttötarpeita.
+ 
+## Välilehdet
+#### Tarjouslaskenta
+Täytä tarjouslaskentaan tarjottavat tuotteet, niiden määrät ja  allekkaisille riveille. Älä jätä tyhjiä rivejä. Tarjouslaskennan rivejä täytettäessä hinnat käydään hakemassa vastaavan työvaiheen perusteella Tuntihinnat-välilehdeltä. (Esim. Tarjouslaskennan Tyovaihe_1 vastaa Tuntihinnat-välilehden työ1-saraketta.) Tuntihinnat-välilehden Muu työ-sarake vastaa Tarjouslaskenta-välilehdellä Muu työ-saraketta.
+
+Tarjouslaskenta-välilehden sarakkeet Työhinta, Yhteensä, Yhteensä+kate ja Hinta/Kpl ovat automaattisesti laskettuja.
+
+Napit ovat:
+- Hae asiakas - Hae asiakkaan tiedot välilehdelle asiakasnro-solussa olevan numeron perusteella Asiakkaat-välilehdeltä.
+- Tyhjennä - Tyhjennä tarjouslaskenta-välilehden tiedot.
+- Aseta muotoilu - selitä
+- Hae tarjouslistasta - Hae tarjous projektinumeron perusteella.
+- Luo tarjous - Luo tarjouslaskentaan syötetyistä riveistä tarjous.
+- Siirrä tarjouslistaan - Oliko tämän tarkoitus muokata olemassaolevaa tarjousta?
+- Luo tilausvahvistus - Luo tarjouslaskennan riveistä tilausvahvistus. (Pitääkö tarjous olla olemassa?)
+- Siirrä työlistaan - Siirrä tarjouslaskennan rivit työlistaan.
+- Luo lähete - Luo tarjouslaskenta-välilehdelle ladatuista tiedoista lähete tulostettavaksi.
+- Luo työkortti - Luo tarjouslaskenta-välilehdelle ladatuista tiedoista työkortti tulostettavaksi.
+- Tarjous PDF - Luo tarjouslaskentaan ladatusta listasta pdf-tiedosto tarjoukseksi. (tarvitseeko olla tarjouslistassa?)
+- Lähete PDF - Luo tarjouslaskentaan ladatusta listasta pdf-tiedosto lähetteeksi. (tarvitseeko olla hyväksytty tarjouslistassa?)
+- Tilausvahvistus PDF - Luo tarjouslaskentaan ladatusta listasta pdf-tiedosto tilausvahvistukseksi. (tarvitseeko olla hyväksytty tarjouslistassa?)
+
+#### Tarjouslista
+Lista tarjouksista, jotka tarjouslaskenta-välilehdeltä on tarjouksiin viety. (miten rivien nappeja käytetään?)
+
+#### Tarjous
+Tarjoukseen ladataan tarjouslaskennasta tulostettavaan pohjaan tarjouksen tiedot. 
+
+#### Työlista
+Työlistaan ladataan tarjouslaskennasta tilauksen saaneet työt. (selitä, miten hyväksyminen tapahtuu?) (miten rivien nappeja käytetään?)
+
+#### Tilausvahvistus
+Tilausvahvistus-välilehdelle ladataan tarjouslaskennasta 
+
+#### Lähete
+Lähete-välilehti (lyhyt selite tähän?)
+
+#### Työkortti
+Työkortti toimii tuotannon työntekijöille työkorttina, jossa kerrotaan mitä tulee tehdä. Ei ole pakko käyttää, jos tuotanto ei tarvitse erikseen työkortteja.
+
+#### Asiakaslista
+Asiakaslista toimii yksinkertaisena asiakastietokantana, josta voidaan hakea tarjouslaskenta-välilehdelle asiakkaan tiedot. Asiakkaiden tietoja voi muuttaa, ja listaan voi lisätä rivejä. Muista kuitenkin antaa asiakkaalle järjestyksessä seuraava numero listassa, jotta asiakkaan tietojen haku onnistuu.
+
+#### Kapasiteetti
+Kapasiteetti-välilehdellä määritellään eri työpisteillä käytössä olevaa kapasiteettia viikkotasolla. Yksittäiselle työvaiheelle käytössä oleva kapasiteetti kuvataan kahdella sarakkeella: Viikkonumero ja viikon kapasiteetti tunteina. Kapasiteetin ollessa viikkokohtainen, sillä ei voi käsitellä yksittäisten työpäivien kapasiteettia.
+
+#### Tuntihinnat
+Tuntihinnat välilehdellä määritellään eri työvaiheiden hinnat. Määrittele itse omien työvaiheidesi tuntihinnat. Tuntihinnat-välilehdellä olevat työvaiheet vastaavat Tarjouslaskenta-välilehdellä olevia työvaiheita.
+
+#### Yritystiedot
+Aseta oman yrityksesi tiedot sekä toimitusehdot tälle välilehdelle niille varatuille paikoille. Tiedot haetaan täältä automaattisesti tarjoukseen, lähetteeseen sekä tilausvahvistukseen.
 
 ## Asiakkaan tiedot
 Asiakaslista-välilehdelle pystytään lisäämään asiakkaan tiedot. Yhden asiakkaan tiedot lisätään yhdelle riville. Asiakkaat täytyy lisätä riveille, niin ettei asiakaslistaan muodostu tyhjiä rivejä. Jos lista sisältää tyhiä rivejä asiakkaiden välillä, asiakkaiden hakeminen ei onnistu.
