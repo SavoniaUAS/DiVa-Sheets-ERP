@@ -73,4 +73,4 @@ Ctrl + Z näppäinyhdistelmällä pääsee kumoamaan viimeisimmät muutokset.
 
 Tarjouslistan tietoja voi filtteröidä, jotta tietojen haku tai tarkistus on sujuvampaa. Filtteröinti tulee "nollata" aina käytön jälkeen, siten, että kaikki rivit ovat taas näkyvillä, jotta tietojen vieminen ja hakeminen toimii sujuvasti.
 
-
+[![Filtterointi](https://github.com/SavoniaUAS/DiVa-Sheets-ERP/blob/main/Gifs/Käyttöohje/Filtterointi.gif?raw=true "Filtterointi")](https://github.com/SavoniaUAS/DiVa-Sheets-ERP/blob/main/Gifs/Käyttöohje/Filtterointi.gif?raw=true "Filtterointi")
