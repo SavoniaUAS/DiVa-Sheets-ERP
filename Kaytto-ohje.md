@@ -45,7 +45,7 @@ Tilausvahvistus luodaan silloin, kun tarjoukselle on saatu hyväksyntä. Kun tar
 [![Tilausvahvistus](https://github.com/SavoniaUAS/DiVa-Sheets-ERP/blob/main/Gifs/Käyttöohje/LuoTilausvahvistus.gif?raw=true "Tilausvahvistus")](https://github.com/SavoniaUAS/DiVa-Sheets-ERP/blob/main/Gifs/Käyttöohje/LuoTilausvahvistus.gif?raw=true "Tilausvahvistus")
 
 ### Lähete
-Kun tarjouksen kaikki työvaiheet on valmiita voidaan tarjouksen tiedot viedä Lähete-välilehdelle. Lähete-välilehti sisältää samat tiedot kuin Tarjous- ja Tilausvahvistus-välilehdet, mutta projektin tiedoissa näkyy ainoastaan sovittu toimituspäivämäärä.
+Kun tarjouksen kaikki työvaiheet on valmiita voidaan tarjouksen tiedot viedä Lähete-välilehdelle. Lähete-välilehti sisältää samat tiedot kuin Tarjous- ja Tilausvahvistus-välilehdet, mutta projektin tiedoissa näkyy ainoastaan sovittu toimituspäivämäärä. Lähetettä luodessa tehdään muutoksia myös Työlista-välilehdelle, kts. Työlista-kohta.
 
 [![Lähete](https://github.com/SavoniaUAS/DiVa-Sheets-ERP/blob/main/Gifs/Käyttöohje/LuoLähete.gif?raw=true "Lähete")](https://github.com/SavoniaUAS/DiVa-Sheets-ERP/blob/main/Gifs/Käyttöohje/LuoLähete.gif?raw=true "Lähete")
 
@@ -69,7 +69,7 @@ Päivämääräsoluja voi muuttaa kalenterinäkymässä kaksoisklikkaamalla kyse
 
 ![Kalenterinäkymä.](https://github.com/SavoniaUAS/DiVa-Sheets-ERP/blob/main/Kuvat/pvmClick.PNG "Kalenterinäkymä") 
 
-Ctrl + Z näppäinyhdistelmällä pääsee kumoamaan viimeisimmät muutokset.
+Ctrl + Z näppäinyhdistelmällä pääsee kumoamaan viimeisimmät muutokset ja Ctrl + Y näppäinyhdistelmällä pääsee viimeisimpiin muutoksiin.
 
 Tarjouslistan tietoja voi filtteröidä, jotta tietojen haku tai tarkistus on sujuvampaa. Filtteröinti tulee "nollata" aina käytön jälkeen, siten, että kaikki rivit ovat taas näkyvillä, jotta tietojen vieminen ja hakeminen toimii sujuvasti.
 
