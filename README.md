@@ -4,7 +4,7 @@ Tämä on käyttöönotto-ohje Savonia Ammattikorkeakoulun Digitalisaatio valmis
 
 Käyttöönottoon tarvitset
  - Google-tilin, jonka alta löydät Google Sheets-työkalun.
- - Google-sheets tiedoston, jossa toiminnanohjausjärjestelmän esimuotoillut taulukot sekä sovelluslogiikka sijaitsee. Kyseinen tiedosto löytyy myöhemmin ohjeesta siinä kohdassa, missä tarvitset sitä, sekä myös [tästä](https://docs.google.com/spreadsheets/d/1EGJta1woZkMkD_UsaVuSANaqO89cCi8ZTut7JLaQwaE/edit?usp=sharing)
+ - Google-sheets tiedoston, jossa toiminnanohjausjärjestelmän esimuotoillut taulukot sekä sovelluslogiikka sijaitsee. Kyseinen tiedosto löytyy myöhemmin ohjeesta siinä kohdassa, missä tarvitset sitä, sekä myös [tästä](https://docs.google.com/spreadsheets/d/1npOr4zm0sTzVFrKdR7KUmuWjH6N0L7wDYrSRebean-E/edit#gid=1780375175)
 
 ## Uuden kansion luominen
 Luo Google Driveen uusi kansio ja nimeä se haluamallasi tavalla. Toiminnanohjausjärjestelmä tulee toimimaan kyseisessä kansiossa. Toiminnanohjausjärjestelmä luo kyseiseen kansioon myöhemmin alikansioita, jotka sisältävät toiminnanohjausjärjestelmän tuottamia tiedostoja.
