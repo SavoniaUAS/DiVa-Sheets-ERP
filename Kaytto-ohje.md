@@ -126,6 +126,9 @@ Työlistaan vieminen
 
 ### PDF:n vienti
 Tarjouksesta, tilausvahvistuksesta ja lähetteestä voidaan luoda PDF-tiedostot. PDF:n luonnille on olemassa omat PDF-vienti napit. Kun PDF tallennetaan haetaan sen tiedot kyseiseltä välilehdeltä, TarjousPDF:n tiedot haetaan Tarjous-välilehdeltä, TilausvahvistusPDF:n tiedot Tilausvahvistus-välilehdeltä ja LähetePDF:n Lähete-välilehdeltä . Tämä tarkoittaa sitä, että kun PDF luodaan, Tarjouslaskenta-välilehdellä voi olla eri tarjous kun välilehdellä, josta halutaan luoda PDF. Tämän takia on hyvä tarkistaa, mistä tiedoista on PDF-tiedostoa tekemässä.
+PDF-kansiopolku on Asiakkaat-pääkansio -> Yrityksen nimi-kansio -> Projektinumero-kansio ->  PDF-tiedostot.
+
+[![PDF:n luonti](https://github.com/SavoniaUAS/DiVa-Sheets-ERP/blob/main/Gifs/Käyttöohje/PDF-luonti.gif?raw=true "Lähete")](https://github.com/SavoniaUAS/DiVa-Sheets-ERP/blob/main/Gifs/Käyttöohje/PDF-luonti.gif?raw=true "PDF:n luonti")
 
 ### Quality of life
 Päivämääräsoluja voi muuttaa kalenterinäkymässä kaksoisklikkaamalla kyseistä solua.
