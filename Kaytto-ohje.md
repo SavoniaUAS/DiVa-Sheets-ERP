@@ -24,6 +24,13 @@ Kun asiakas tai asiakkaat on lisätty, voidaan Tarjouslaskenta-välilehdellä ha
 ## Tarjouslaskennan rivien täyttäminen
 Tarjouslaskentaan täytetään nimikekohtaisesti nimikkeiden tuntimäärät, sekä hinnat. Harmaalla värjättyihin soluihin ohjelma laskee yhteishinnat automaattisesti. Myös rivillä 10 olevaan vihreällä värjättyyn yhteensä sarakkeeseen tulee laskujen yhteistulos automaattisesti. <strong>Laskutoimituksiin käytetyt kaavat on upotettu soluihin, joten soluja ei saa mennä muuttamaan</strong>.  Riville tulee kaikkien täytettyjen kolumnien yhteenlasketut tiedot. <strong>Sovellus ei hyväksy tyhjiä rivejä tarjouslaskennan rivejä täytettäessä</strong>. Jos solu jää tyhjäksi, sen arvoksi lisätään 0, kun tarjous viedään tarjouslistaan.
 
+:white_check_mark:
+![Tarjouslaskenta täyttö oikein.](https://github.com/SavoniaUAS/DiVa-Sheets-ERP/blob/main/Kuvat/Tarjouslaskenta_taytto-Oikein.PNG "Tarjouslaskenta täyttö oikein") 
+
+
+:x:
+![Tarjouslaskenta täyttö väärin.](https://github.com/SavoniaUAS/DiVa-Sheets-ERP/blob/main/Kuvat/Tarjouslaskenta_taytto-Vaarin.PNG "Tarjouslaskenta täyttö väärin") 
+
 ## Päivämäärät
 Päivämäärät pitää olla muodossa YYYY/MM/DD eli vuosi/kuukausi/päivä. Tarjouksen päivämäärän sovellus luo automaattisesti. Toimitusaika muunnetaan automaattisesti tarjouslistassa viikkonumeroksi.
 
