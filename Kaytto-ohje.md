@@ -31,7 +31,7 @@ Napit ovat:
 - Tilausvahvistus PDF - Luo tarjouslaskentaan ladatusta listasta pdf-tiedosto tilausvahvistukseksi.
 
 #### Tarjouslista
-Tarjouslista toimii ohjelman tietokantana. Tarjouslaskenta-välilehdellä määritellyt tiedot viedään tarjouslistan alimmaiseksi ja tarjouksen rivien "Viimeisin" sarakkeen valintaruudut merkitään automaattisesti. Täällä tarjous on tallessa sillä välin kun tarjous lähetetään asiakkaalle ja saadaan sille hyväksyntä. Jos tarjousta halutaan myöhemmin muokata, sen saa haettua projektinumeron avulla Tarjouslaskenta-välilehden Hae tarjouslistasta-painikkeen avulla. Tällöin ”Viimeisin” sarakkeen valintaruudun merkinnät otetaan automaattisesti pois vanhasta versiosta.
+Tarjouslista toimii ohjelman tietokantana. Tarjouslaskenta-välilehdellä määritellyt tiedot viedään tarjouslistan alimmaiseksi ja tarjouksen rivien "Viimeisin" sarakkeen valintaruudut merkitään automaattisesti. "Viimeisin"-sarakkeen valintaruutua käytetään siihen, että tarjouslistasta osataan tuoda tarjouksen viimeisin versio. Täällä tarjous on tallessa sillä välin kun tarjous lähetetään asiakkaalle ja saadaan sille hyväksyntä. Jos tarjousta halutaan myöhemmin muokata, sen voi hakea tarjouslistasta. Samalla ”Viimeisin” sarakkeen valintaruudun merkinnät otetaan automaattisesti pois vanhasta versiosta.
 <strong>Kun tarjousta on muokattu, pitää tarjous lisätä uudestaan tarjouslistaan Siirrä tarjouslistaan-painikkeella, jolloin muokatusta tarjouksesta tulee uusi ”Viimeisin” tarjous</strong>. Myös vanha tarjous jää tarjouslistaan, jos sitä halutaan tarkastella myöhemmin. Vanhoja tarjouksia voi halutessaan poistaa myös manuaalisesti, mutta tämä vaatii huolellisuutta ja sitä, että poistettava tarjous ei ole "Viimeisin", eikä "Hyväksytty" toimivuuden takaamiseksi.
 
 #### Tarjous
@@ -120,7 +120,7 @@ Kun tarjouksen kaikki työvaiheet on valmiita voidaan tarjouksen tiedot viedä L
 [![Lähete](https://github.com/SavoniaUAS/DiVa-Sheets-ERP/blob/main/Gifs/Käyttöohje/LuoLähete.gif?raw=true "Lähete")](https://github.com/SavoniaUAS/DiVa-Sheets-ERP/blob/main/Gifs/Käyttöohje/LuoLähete.gif?raw=true "Lähete")
 
 ### Työlista
-Työlistaan vieminen
+Työlistaan vienti.
 
 [![Työlistaan vienti](https://github.com/SavoniaUAS/DiVa-Sheets-ERP/blob/main/Gifs/Käyttöohje/VieTyoListaan.gif?raw=true "Työlistaan vienti")](https://github.com/SavoniaUAS/DiVa-Sheets-ERP/blob/main/Gifs/Käyttöohje/VieTyoListaan.gif?raw=true "Työlistaan vienti")
 
