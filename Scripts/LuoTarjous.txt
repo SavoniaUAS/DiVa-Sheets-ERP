@@ -39,7 +39,6 @@ async function luoTarjous() {
 
   var nimikeAlue = tarjousSheet.getDataRegion(SpreadsheetApp.Dimension.COLUMNS).
     getDataRegion(SpreadsheetApp.Dimension.ROWS).offset(0, 1, rivimaara + 1, 1);
-  console.log(nimikeAlue.getValues());
   alue.clearFormat();
   setFont.clearFormat();
   alue.setFontFamily("Comfortaa");
@@ -85,7 +84,6 @@ async function luoTarjous() {
   var yritystiedot1 = yritysleima.getRange("B2").getDataRegion(SpreadsheetApp.Dimension.ROWS);
   var yritystiedot1Rivit = yritystiedot1.getValues().length;
   var yritystiedot1Alue = yritystiedot1.offset(0, 0, yritystiedot1Rivit, 1).setHorizontalAlignment('left');
-  console.log(yritystiedot1.getValues());
 
   var yritystiedot2 = yritysleima.getRange("D2").getDataRegion(SpreadsheetApp.Dimension.ROWS);
   var yritystiedot2Rivit = yritystiedot2.getValues().length;
@@ -163,9 +161,7 @@ async function tarjousHinnat() {
   var tarjouslaskentasheet = tarjouslaskenta.getRange('A13');
   var rivit = tarjouslaskentasheet.getDataRegion(SpreadsheetApp.Dimension.ROWS);
   var rivimaara = rivit.getValues().length - 1;
-  console.log(rivimaara);
   var tarjouslaskentarow = tarjouslaskentasheet.getRow();
-  console.log(tarjouslaskentarow);
   var copyHintaValue = tarjouslaskenta.getRange(tarjouslaskentarow, 15, 1, 1);
   var copyKplHinta = tarjouslaskenta.getRange(tarjouslaskentarow, 16, 1, 1);
   //Tarjous
@@ -219,7 +215,6 @@ async function tyhjennaTarjousLeima() {
         continue;
       }
       dest = tarjous.getRange(startRow, 1, 1, 1);
-      console.log(value);
       break;
 
     }
@@ -239,12 +234,10 @@ async function tarjousTyhjennaHinnat() {
   var start = tarjous.getRange('A20').getNextDataCell(SpreadsheetApp.Direction.DOWN).offset(0, 0,);
   var row = start.getRow();
   var dest;
-  console.log(row);
   for (var i = 0; i < 20; i++) {
     var value = tarjous.getRange(row, 1, 1, 1).getValue();
     if (value === text) {
       dest = tarjous.getRange(row, 1, 1, 1);
-      console.log(value);
       break;
 
     }
@@ -254,7 +247,3 @@ async function tarjousTyhjennaHinnat() {
   tyhjennys.clearContent().clearFormat();
 
 }
-
-
-
-
