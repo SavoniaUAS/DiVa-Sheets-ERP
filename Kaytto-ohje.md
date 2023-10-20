@@ -11,7 +11,7 @@ Voit muuttaa otsikoita kuvaamaan paremmin työvaiheita ja käyttötarpeita.
  
 ## Välilehdet
 #### Tarjouslaskenta
-Täytä tarjouslaskentaan tarjottavat tuotteet, niiden määrät ja  allekkaisille riveille. Älä jätä tyhjiä rivejä. Tarjouslaskennan rivejä täytettäessä hinnat käydään hakemassa vastaavan työvaiheen perusteella Tuntihinnat-välilehdeltä (Esim. Tarjouslaskennan Työvaihe_1 vastaa Tuntihinnat-välilehden Työvaihe_1-saraketta.). Materiaalin ja käsittelyn hinta määritellään tarjouslaskentaan itse. <strong>Muista syöttää projektinumero, projektin nimi ja asiakkaan viite, sekä määritellä toimitusajan aina uutta projektia luodessa</strong>.
+Täytä tarjouslaskentaan tarjottavat tuotteet, niiden määrät ja  allekkaisille riveille. Älä jätä tyhjiä rivejä. Tarjouslaskennan rivejä täytettäessä hinnat käydään hakemassa vastaavan työvaiheen perusteella Tuntihinnat-välilehdeltä (Esim. Tarjouslaskennan Työvaihe_1 vastaa Tuntihinnat-välilehden Työvaihe_1-saraketta.). Materiaalin ja käsittelyn hinta määritellään tarjouslaskentaan itse. <strong>Muista syöttää projektinumero, projektin nimi ja asiakkaan viite, sekä määritellä toimitusajan aina uutta projektia luodessa</strong>. Kun tarjouslistasta haetaan tietoja tarjouslaskenta-välilehdelle nämä kohdat täyttyvät automaattisesti.
 
 Tarjouslaskenta-välilehden sarakkeet Työhinta, Yhteensä, Yhteensä+kate ja Hinta/Kpl ovat automaattisesti laskettuja.
 
@@ -99,7 +99,7 @@ Jos solu taas jää tyhjäksi, sen arvoksi lisätään 0, kun tarjous viedään 
 Päivämäärät pitää olla muodossa YYYY/MM/DD eli vuosi/kuukausi/päivä. Tarjouksen päivämäärän sovellus luo automaattisesti. Toimitusaika muunnetaan automaattisesti tarjouslistassa viikkonumeroksi.
 
 ### Tarjouslista
-Siirrä tarjouslistaan-painiketta painamalla, tarjouslaskenta-välilehdelle syötetyt rivit viedään tarjouslistaan ja merkitään tarjouslistassa viimeisimmäksi versioksi. Projektinumero, Projektinimi, Asiakkaan viite ja toimitusaika on määritelty.
+Siirrä tarjouslistaan-painiketta painamalla, tarjouslaskenta-välilehdelle syötetyt rivit viedään tarjouslistaan ja merkitään tarjouslistassa viimeisimmäksi versioksi. Muista määritellä projektinumero, projektinimi, asiakkaan viite ja toimitusaika kun luot uutta projektia.
 
 [![Tarjouslistaan vienti](https://github.com/SavoniaUAS/DiVa-Sheets-ERP/blob/main/Gifs/Käyttöohje/SiirtoTarjouslistaan.gif?raw=true "Tarjouslistaan vienti")](https://github.com/SavoniaUAS/DiVa-Sheets-ERP/blob/main/Gifs/Käyttöohje/SiirtoTarjouslistaan.gif?raw=true "Tarjouslistaan vienti")
 
