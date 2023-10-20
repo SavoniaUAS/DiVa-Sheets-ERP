@@ -41,7 +41,6 @@ function luoTilausvahvistus() {
 
     var nimikeAlue = tilausSheet.getDataRegion(SpreadsheetApp.Dimension.COLUMNS).
       getDataRegion(SpreadsheetApp.Dimension.ROWS).offset(0, 1, rivimaara + 1, 1);
-    console.log(nimikeAlue.getValues())
     alue.clearFormat();
     setFont.clearFormat();
     alue.setFontFamily("Comfortaa");
@@ -100,7 +99,6 @@ function luoTilausvahvistus() {
   var yritystiedot1 = yritysleima.getRange("B2").getDataRegion(SpreadsheetApp.Dimension.ROWS);
   var yritystiedot1Rivit = yritystiedot1.getValues().length;
   var yritystiedot1Alue = yritystiedot1.offset(0, 0, yritystiedot1Rivit, 1).setHorizontalAlignment('left');
-  console.log(yritystiedot1.getValues());
 
   var yritystiedot2 = yritysleima.getRange("D2").getDataRegion(SpreadsheetApp.Dimension.ROWS);
   var yritystiedot2Rivit = yritystiedot2.getValues().length;
@@ -123,7 +121,7 @@ function luoTilausvahvistus() {
       //Tarjouksen koko alue
       var alue = tilausTyhjennys.getDataRegion(SpreadsheetApp.Dimension.COLUMNS).
         getDataRegion(SpreadsheetApp.Dimension.ROWS).offset(1, 0, tyhjennysRivimaara);
-      //console.log(alue.getValues());
+
       //Tyhjennetään alue
       alue.clearContent().setBackground("white");
 
@@ -179,7 +177,6 @@ function tilausHinnat() {
   var tarjouslaskentasheet = tarjouslaskenta.getRange('A13');
   var rivit = tarjouslaskentasheet.getDataRegion(SpreadsheetApp.Dimension.ROWS);
   var rivimaara = rivit.getValues().length - 1;
-  //console.log(rivimaara);
   var tarjouslaskentarow = tarjouslaskentasheet.getRow();
   var copyHintaValue = tarjouslaskenta.getRange(tarjouslaskentarow, 15, 1, 1);
   var copyKplHinta = tarjouslaskenta.getRange(tarjouslaskentarow, 16, 1, 1);
@@ -223,7 +220,6 @@ function checkBoxesHyvaksytty() {
   var counter = 0;
   var startingRow;
   var row = 2;
-  //console.log(tarjouslistaGo.getValues());
   for (var i = 1; i < rivit; i++) {
     if (projektinumerot[i] == projektinumero && tarjouslista.getRange(row, 8, 1, 1).isChecked()) {
       if (counter == 0) {
@@ -263,7 +259,6 @@ function tilausTyhjennaLeima() {
         continue;
       }
       dest = tilaus.getRange(startRow, 1, 1, 1);
-      console.log(value);
       break;
 
     }
@@ -283,12 +278,10 @@ function tilausTyhjennaHinnat() {
   var start = tilaus.getRange('A20').getNextDataCell(SpreadsheetApp.Direction.DOWN).offset(0, 0,);
   var row = start.getRow();
   var dest;
-  console.log(row);
   for (var i = 0; i < 20; i++) {
     var value = tilaus.getRange(row, 1, 1, 1).getValue();
     if (value === text) {
       dest = tilaus.getRange(row, 1, 1, 1);
-      console.log(value);
       break;
 
     }
@@ -298,7 +291,3 @@ function tilausTyhjennaHinnat() {
   tyhjennys.clearContent().clearFormat();
 
 }
-
-
-
-
