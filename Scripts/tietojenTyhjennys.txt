@@ -2,9 +2,7 @@ function tietojenTyhjennys(){
 var ui = SpreadsheetApp.getUi();
 var response = ui.alert('Oletko varma?', ui.ButtonSet.YES_NO);
 
-// Process the user's response.
 if (response == ui.Button.YES) {
-  //Logger.log('The user clicked "Yes."');
 var asiakasTiedot = SpreadsheetApp.getActive().getSheetByName("Tarjouslaskenta").getRange('B1');
 var asiakasRivit = asiakasTiedot.getDataRegion(SpreadsheetApp.Dimension.ROWS);//valitaan rivit, joissa on tietoa
 asiakasRivit.clearContent();
@@ -35,3 +33,4 @@ projektiRivit.clearContent();
 var kateRivit = kate.getDataRegion(SpreadsheetApp.Dimension.ROWS).offset(1,0,kate_lkm);
 kateRivit.clearContent();
 }
+
