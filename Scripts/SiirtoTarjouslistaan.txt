@@ -1,4 +1,6 @@
-function tietojenSiirto() {
+var suoritettu;
+
+async function tietojenSiirto() {
   var response = Browser.msgBox('Vie tarjous tarjouslistaan?', Browser.Buttons.YES_NO);
   if (response == "no") {
     result = Browser.msgBox('Tarjousta ei viety');
@@ -9,7 +11,7 @@ function tietojenSiirto() {
   var tarjouslista = SpreadsheetApp.getActive().getSheetByName("Tarjouslista");
   var sheet = tarjouslaskenta.getRange('A13');//aktivoidaan varmasti oikea välilehti
   var tarjouslistasheet = tarjouslista.getRange('A2');
-
+  
   var rivit = sheet.getDataRegion(SpreadsheetApp.Dimension.ROWS);//valitaan rivit, joissa on tietoa
 
   var rivi_lkm = rivit.getNumRows() - 1;//lasketaan rivit - 1 eli ylin rivi
@@ -42,8 +44,12 @@ function tietojenSiirto() {
     Browser.msgBox("Tarjous viety");
   }
   else {
-    nopeaTiedonSiirto()
-
+    
+    await nopeaTiedonSiirto()
+    if(suoritettu == "Ei"){
+      Browser.msgBox("Tarjouslista sisältää saman projektinumeron eri asiakkaalla, tarjousta ei viety");
+      return;
+    }
     Browser.msgBox("Tarjous viety");
 
   }
@@ -104,9 +110,10 @@ function insertPerustiedot() {
   tarjousAlue.copyTo(tarjouslista.getRange(2, 10, 1, kolumni_lkm), { contentsOnly: true });
   tarjouslista.getRange(row, 1, 1, 27).setBorder(true, false, false, false, false, false);
 }
-function uncheckBoxes() {
+async function uncheckBoxes() {
   var tarjouslaskenta = SpreadsheetApp.getActive().getSheetByName("Tarjouslaskenta");
   var tarjouslista = SpreadsheetApp.getActive().getSheetByName("Tarjouslista");
+  var tarjouslaskentaAsiakas = tarjouslaskenta.getRange("B1").getValue();
   var projektinumero = tarjouslaskenta.getRange("D1").getValue();
   var tarjouslistasheet = tarjouslista.getRange("A2");
   var tarjouslistarivit = tarjouslistasheet.getDataRegion(SpreadsheetApp.Dimension.ROWS);
@@ -120,17 +127,25 @@ function uncheckBoxes() {
 
     for (var i = 0; i < listarivimaara; i++) {
       if (tarjouslista.getRange(searchRow, 8, 1, 1).isChecked() == true && projektinumero == projektinumerovalue) {
+        if(tarjouslista.getRange(searchRow,2,1,1).getValue() != tarjouslaskentaAsiakas){
+          suoritettu = "Ei"
+          return;
+        }
         var checkboxAloitusRow = searchRow;
         break;
       }
       else {
-
         searchRow = numberFinder.findNext().getRow();
         projektinumerovalue = tarjouslista.getRange(searchRow, 1, 1, 1).getValue();
       }
     }
+    
     while (tarjouslista.getRange(searchRow, 8, 1, 1).isChecked() == true && projektinumero == projektinumerovalue) {
-      searchRow++;
+      projektinumerovalue = tarjouslista.getRange(searchRow, 1, 1, 1).getValue();
+      if(projektinumero == projektinumerovalue){
+        searchRow++;
+      }
+      
     }
     checkboxLopetusRow = searchRow;
     var checkBoxRows = checkboxLopetusRow - checkboxAloitusRow;
@@ -139,12 +154,15 @@ function uncheckBoxes() {
   catch (e) {
     return;
   }
-
+  suoritettu = "Kyllä";
 }
 
 
-function nopeaTiedonSiirto() {
-  uncheckBoxes();
+async function nopeaTiedonSiirto() {
+  await uncheckBoxes();
+  if(suoritettu == "Ei"){
+    return;
+  }
   var tarjouslaskentasheet = SpreadsheetApp.getActive().getSheetByName("Tarjouslaskenta");
   var tarjouslaskenta = tarjouslaskentasheet.getRange("A13");
   var tarjouslista = SpreadsheetApp.getActive().getSheetByName("Tarjouslista");
@@ -203,8 +221,3 @@ function nopeaTiedonSiirto() {
   tarjouslista.getRange(listarivi_lkm + 1, 27, rivi_lkm, 1).setBackground("#ea9999");
   
 }
-
-
-
-
-
