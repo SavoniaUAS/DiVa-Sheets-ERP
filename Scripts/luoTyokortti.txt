@@ -61,9 +61,7 @@ function tyokorttiPositio() {
   var tarjouslaskentasheet = tarjouslaskenta.getRange('A13');
   var rivit = tarjouslaskentasheet.getDataRegion(SpreadsheetApp.Dimension.ROWS);
   var rivimaara = rivit.getValues().length - 1;
-  console.log(rivimaara);
   var tarjouslaskentarow = tarjouslaskentasheet.getRow();
-  console.log(tarjouslaskentarow);
   //Tarjous
   var tyokortti = SpreadsheetApp.getActive().getSheetByName("Työkortti");
   var tyokorttiStart = tyokortti.getRange("R5");
