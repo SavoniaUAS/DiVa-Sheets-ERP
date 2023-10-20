@@ -11,7 +11,7 @@ Voit muuttaa otsikoita kuvaamaan paremmin työvaiheita ja käyttötarpeita.
  
 ## Välilehdet
 #### Tarjouslaskenta
-Täytä tarjouslaskentaan tarjottavat tuotteet, niiden määrät ja  allekkaisille riveille. Älä jätä tyhjiä rivejä. Tarjouslaskennan rivejä täytettäessä hinnat käydään hakemassa vastaavan työvaiheen perusteella Tuntihinnat-välilehdeltä (Esim. Tarjouslaskennan Työvaihe_1 vastaa Tuntihinnat-välilehden Työvaihe_1-saraketta.). Materiaalin ja käsittelyn hinta määritellään tarjouslaskentaan itse. <strong>Muista syöttää projektinumero, projektin nimi ja asiakkaan viite, sekä määritellä toimitusajan aina uutta projektia luodessa</strong>. Kun tarjouslistasta haetaan tietoja tarjouslaskenta-välilehdelle nämä kohdat täyttyvät automaattisesti.
+Täytä tarjouslaskentaan tarjottavat tuotteet, niiden määrät ja  allekkaisille riveille. Älä jätä tyhjiä rivejä. Tarjouslaskennan rivejä täytettäessä hinnat käydään hakemassa vastaavan työvaiheen perusteella Tuntihinnat-välilehdeltä (Esim. Tarjouslaskennan Työvaihe_1 vastaa Tuntihinnat-välilehden Työvaihe_1-saraketta.). Materiaalin ja käsittelyn hinta määritellään tarjouslaskentaan itse. <strong>Muista syöttää projektinumero, projektin nimi ja asiakkaan viite, sekä määritellä toimitusaika aina uutta projektia luodessa</strong>. Kun tarjouslistasta haetaan tietoja tarjouslaskenta-välilehdelle nämä kohdat täyttyvät automaattisesti.
 
 Tarjouslaskenta-välilehden sarakkeet Työhinta, Yhteensä, Yhteensä+kate ja Hinta/Kpl ovat automaattisesti laskettuja.
 
