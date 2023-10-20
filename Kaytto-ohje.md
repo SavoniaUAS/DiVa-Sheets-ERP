@@ -107,7 +107,7 @@ Siirrä tarjouslistaan-painiketta painamalla, tarjouslaskenta-välilehdelle syö
 #### Tarjous
 Tarjous luodaan painamalla Luo Tarjous-painiketta, jolloin tarjous-välilehdelle viedään tarjouslaskenta-välilehdellä olevan projektin tiedot
 
-[![Tarjous](https://github.com/SavoniaUAS/DiVa-Sheets-ERP/blob/main/Gifs/Käyttöohje/LuoTarjous.gif?raw=true "Tarjouslistaan vienti")](https://github.com/SavoniaUAS/DiVa-Sheets-ERP/blob/main/Gifs/Käyttöohje/LuoTarjous.gif?raw=true "Tarjous")
+[![Tarjous](https://github.com/SavoniaUAS/DiVa-Sheets-ERP/blob/main/Gifs/Käyttöohje/LuoTarjous.gif?raw=true "Tarjous")](https://github.com/SavoniaUAS/DiVa-Sheets-ERP/blob/main/Gifs/Käyttöohje/LuoTarjous.gif?raw=true "Tarjous")
 
 #### Tilausvahvistus
 Tilausvahvistus luodaan painamalla Luo Tilausvahvistus-painiketta, jolloin tilausvahvistus-välilehdelle viedään tarjouslaskenta-välilehdellä olevan projektin tiedot. Projekti merkitään hyväksytyksi tarjouslistassa.
