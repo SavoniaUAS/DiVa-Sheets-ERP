@@ -12,7 +12,6 @@ function muokkaaTarjous() {
   var result = ui.prompt('Syötä projektinumero', ui.ButtonSet.OK_CANCEL);
   var button = result.getSelectedButton();
   var projektinumero = result.getResponseText();
-  console.log(projektinumero);
   if (button == ui.Button.CANCEL) {
     Browser.msgBox("Tarjouslistan tietoja ei tuotu");
   }
@@ -31,8 +30,7 @@ function muokkaaTarjous() {
     var searchRow = numberFinder.findNext().getRow();
     var projektinumerovalue = tarjouslista.getRange(searchRow, 1, 1, 1).getValue();
     var asiakasnumerovalue = tarjouslista.getRange(searchRow, 2, 1, 1).getValue();
-    console.log(projektinumerovalue);
-    console.log(searchRow);
+
     for (var i = 0; i < listarivimaara; i++) {
       if (tarjouslista.getRange(searchRow, 8, 1, 1).isChecked() == true && projektinumero == projektinumerovalue) {
         break;
@@ -58,11 +56,8 @@ function muokkaaTarjous() {
   var asiakasnumero = customerSheet.getRange(c,1,1,1).getValue();
   for(var i = 0; i < asiakasrivimaara;i++){
     asiakasnumero = customerSheet.getRange(c,1,1,1).getValue();
-    console.log("Asiakasnumero : " + asiakasnumero);
     if( asiakasnumero === asiakasnumerovalue){
       var asiakasValues = customerSheet.getRange(c,1,1,8).getValues();
-      console.log(asiakasValues); 
-      console.log(asiakasnumerovalue);
       break;
 
     }
@@ -129,7 +124,6 @@ function muokkaaTarjous() {
   var toimitusDate = (1 + (toimitus - 1) * 7 + 6);
   var date = new Date(2023, 0, toimitusDate);
   var toimituspvm = Utilities.formatDate(date, "GMT+1", "yyyy/MM/dd");
-  console.log(toimituspvm);
   tarjouslaskenta.getRange("D5").setValue(toimituspvm);
 
   var counter = 0
@@ -151,9 +145,7 @@ function muokkaaTarjous() {
         copyHuom = tarjouslista.getRange(searchRow, 27, 1, 1);
         copyKate = tarjouslista.getRange(searchRow, 26, 1, 1,);
         copyValue = tarjouslista.getRange(searchRow, 10, 1, 12);
-        //copyKpl = tarjouslista.getRange(searchRow,10,1,1)
-        allValues = copyValue.getValues();
-        //kplDestination = tarjouslaskenta.getRange(tarjousrivinro,1,1,1);
+        allValues = copyValue.getValues();        
         destination = tarjouslaskenta.getRange(tarjousrivinro, 1, 1, 12);
         kateDestination = tarjouslaskenta.getRange(tarjousrivinro, 17, 1, 1);
         huomDestination = tarjouslaskenta.getRange(tarjousrivinro, 18, 1, 1);
@@ -186,10 +178,3 @@ function muokkaaTarjous() {
 function muotoilu() {
   asetaMuotoilu();
 }
-
-
-
-
-
-
-
