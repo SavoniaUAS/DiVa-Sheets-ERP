@@ -40,7 +40,6 @@ function saveTilausvahvistusPDF() {
   });
 
   var tilausvahvistusDuplicates = checkTilausvahvistusDuplicates();
-  console.log(tilausvahvistusDuplicates);
   if (tilausvahvistusDuplicates > 0) {
     var counter = tilausvahvistusDuplicates + 1;
     getTilausvahvistusFolder_(projektinumero)
@@ -57,7 +56,7 @@ function saveTilausvahvistusPDF() {
 function getTilausvahvistusFolder_(projektinumero) {
   var tilausSheet = SpreadsheetApp.getActive().getSheetByName("Tilausvahvistus");
   var projektinumero = tilausSheet.getRange("D6").getValue()
-  var asiakas = tilausSheet.getRange("B7").getValue();
+  var asiakas = tilausSheet.getRange("B6").getValue();
   const ssId = SpreadsheetApp.getActiveSpreadsheet().getId();
   const parentFolder = DriveApp.getFileById(ssId).getParents().next();
 
@@ -102,14 +101,6 @@ function checkTilausvahvistusDuplicates() {
     var name = file.getName();
     names.push(name);
   }
-  for (var i = 0; i < names.length; i++) {
-    console.log(names[i]);
-  }
 
   return names.length;
 }
-
-
-
-
-
