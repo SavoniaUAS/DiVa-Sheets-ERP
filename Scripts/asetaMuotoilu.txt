@@ -4,7 +4,6 @@ function asetaMuotoilu() {
   var sheet = tarjouslaskenta.getRange('A13');
   var rivit = sheet.getDataRegion(SpreadsheetApp.Dimension.ROWS);
   var rivi_lkm = rivit.getNumRows() - 1
-  console.log(rivi_lkm);
   var nimike = rivit.offset(1, 0, rivi_lkm, 1);
   nimike.setBackground("white");
 
@@ -18,7 +17,6 @@ function asetaMuotoilu() {
 
   pnroJaKpl.setBackground("white");
   var kulut = rivit.offset(1, 3, rivi_lkm, 3);
-  //console.log(kulut.getValues());
 
   kulut.setBorder(null, null, true, null, true, true, "black", SpreadsheetApp.BorderStyle.DASHED);
   kulut.setBorder(true, null, null, true, null, null, "black", SpreadsheetApp.BorderStyle.SOLID);
@@ -47,7 +45,6 @@ function asetaMuotoilu() {
   hiontalanka.setBackground("white");
 
   var kateprosentti = rivit.offset(1, 16, rivi_lkm, 1)
-  console.log(kateprosentti.getValues());
 
   kateprosentti.setBorder(null, null, true, null, true, true, "black", SpreadsheetApp.BorderStyle.DASHED);
   kateprosentti.setBorder(null, true, null, true, null, null, "black", SpreadsheetApp.BorderStyle.SOLID);
@@ -55,7 +52,6 @@ function asetaMuotoilu() {
   kateprosentti.setBackground("white");
 
   var huom = rivit.offset(1, 17, rivi_lkm, 1)
-  console.log(huom.getValues());
 
   huom.setBorder(null, null, true, null, true, true, "black", SpreadsheetApp.BorderStyle.DASHED);
   huom.setBorder(null, null, null, true, null, null, "black", SpreadsheetApp.BorderStyle.DOUBLE);
