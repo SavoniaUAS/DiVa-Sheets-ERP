@@ -22,7 +22,6 @@ function luoTyolista() {
 
     var searchRow = 2;
 
-    console.log("insertPerustietojen value" + value);
     for (var i = 0; i < rivit; i++) {
       var value = tyolista.getRange(searchRow, 1, 1, 1).getValue();
       if (value == projektinumero) {
@@ -39,17 +38,11 @@ function luoTyolista() {
     var tarjouspvm = Utilities.formatDate(tarjousviikko, "GMT", "yyyy/MM/dd");
     var toimitusviikko = Utilities.formatDate(tarjousviikko, "GMT", "w");
     var asiakas = tarjouslaskenta.getRange("B2").getValue();
-    console.log(toimitusviikko);
-    var sheet = tarjouslaskenta.getRange("A13");
-    //var rivit = sheet.getDataRegion(SpreadsheetApp.Dimension.ROWS);
 
-    //var rivi_lkm = rivit.getNumRows() - 1;
-    //console.log(rivi_lkm);
     tyolista.insertRowsBefore(2, 4);
   
 
   var destination = tyolista.getRange('A1').getNextDataCell(SpreadsheetApp.Direction.DOWN).offset(1, 0);
-  var teksti = "Ei määritelty";
   var row = destination.getRow();
   var projektinimi = tarjouslaskenta.getRange("D2").getValue();
   var tyovaihe1tunnit = tarjouslaskenta.getRange('G10').getValue();
@@ -57,7 +50,6 @@ function luoTyolista() {
   if (tyolista.getRange("A2").getValue() == "") {
     row = 2;
     destination = tyolista.getRange(2, 1);
-    console.log(destination.getRow());
   }
   for (var i = 0; i <= 4; i++) {
     if (i == 0) {
@@ -95,9 +87,8 @@ function luoTyolista() {
   }
   getTyoVaihe2Tunnit();
   getTyoVaihe3Tunnit();
-  getTyoVaihe4Tunnit()
-  //dateFromWeek();
-  //startingDate();
+  getTyoVaihe4Tunnit();
+
   tyolista.getRange("H1:H5").setBorder(null, null, null, true, false, false);
   tyolista.getRange("J1:J5").setBorder(null, null, null, true, false, false);
   tyolista.getRange("L1:L5").setBorder(null, null, null, true, false, false);
@@ -116,7 +107,6 @@ function getTyoVaihe2Tunnit() {
   if (tyolista.getRange("E3").getValue() == "") {
     row = 2;
     destination = tyolista.getRange(3, 6);
-    console.log(destination.getRow());
   }
   for (var i = 0; i <= 4; i++) {
 
@@ -143,7 +133,6 @@ function getTyoVaihe4Tunnit() {
   if (tyolista.getRange("F4").getValue() == "") {
     row = 2;
     destination = tyolista.getRange(4, 7);
-    console.log(destination.getRow());
   }
   for (var i = 0; i <= 4; i++) {
 
@@ -174,7 +163,6 @@ function getTyoVaihe3Tunnit() {
   if (tyolista.getRange("G5").getValue() == "") {
     row = 2;
     destination = tyolista.getRange(5, 8);
-    console.log(destination.getRow());
   }
   for (var i = 0; i <= 4; i++) {
 
@@ -191,8 +179,3 @@ function getTyoVaihe3Tunnit() {
 
   }
 }
-
-
-
-
-
