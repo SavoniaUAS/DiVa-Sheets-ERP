@@ -137,6 +137,6 @@ Päivämääräsoluja voi muuttaa kalenterinäkymässä kaksoisklikkaamalla kyse
 
 Ctrl + Z näppäinyhdistelmällä pääsee kumoamaan viimeisimmät muutokset ja Ctrl + Y näppäinyhdistelmällä pääsee viimeisimpiin muutoksiin.
 
-Tarjouslistan tietoja voi filtteröidä, jotta tietojen haku tai tarkistus on sujuvampaa. Filtteröinti tulee "nollata" aina käytön jälkeen, siten, että kaikki rivit ovat taas näkyvillä, jotta tietojen vieminen ja hakeminen toimii sujuvasti.
+Tarjouslistan tietoja voi suodattaa, jotta tietojen haku tai tarkistus on sujuvampaa. Suodatus tulee "nollata" aina käytön jälkeen, siten, että kaikki rivit ovat taas näkyvillä, jotta tietojen vieminen ja hakeminen toimii sujuvasti.
 
 [![Filtterointi](https://github.com/SavoniaUAS/DiVa-Sheets-ERP/blob/main/Gifs/Käyttöohje/Filtterointi.gif?raw=true "Filtterointi")](https://github.com/SavoniaUAS/DiVa-Sheets-ERP/blob/main/Gifs/Käyttöohje/Filtterointi.gif?raw=true "Filtterointi")
