@@ -11,7 +11,7 @@ Voit muuttaa otsikoita kuvaamaan paremmin työvaiheita ja käyttötarpeita.
  
 ## Välilehdet
 #### Tarjouslaskenta
-Täytä tarjouslaskentaan tarjottavat tuotteet, niiden määrät ja  allekkaisille riveille. Älä jätä tyhjiä rivejä. Tarjouslaskennan rivejä täytettäessä hinnat käydään hakemassa vastaavan työvaiheen perusteella Tuntihinnat-välilehdeltä (Esim. Tarjouslaskennan Työvaihe_1 vastaa Tuntihinnat-välilehden Työvaihe_1-saraketta.). Materiaalin ja käsittelyn hinta määritellään tarjouslaskentaan itse.
+Täytä tarjouslaskentaan tarjottavat tuotteet, niiden määrät ja  allekkaisille riveille. Älä jätä tyhjiä rivejä. Tarjouslaskennan rivejä täytettäessä hinnat käydään hakemassa vastaavan työvaiheen perusteella Tuntihinnat-välilehdeltä (Esim. Tarjouslaskennan Työvaihe_1 vastaa Tuntihinnat-välilehden Työvaihe_1-saraketta.). Materiaalin ja käsittelyn hinta määritellään tarjouslaskentaan itse. <strong>Muista syöttää projektinumero, projektin nimi ja asiakkaan viite, sekä määritellä toimitusajan aina uutta projektia luodessa</strong>.
 
 Tarjouslaskenta-välilehden sarakkeet Työhinta, Yhteensä, Yhteensä+kate ja Hinta/Kpl ovat automaattisesti laskettuja.
 
@@ -38,7 +38,7 @@ Tarjouslista toimii ohjelman tietokantana. Tarjouslaskenta-välilehdellä määr
 Tarjoukseen ladataan tarjouslaskennasta tulostettavaan pohjaan tarjouksen tiedot. Vaatii, että yrityksen tiedot on täytetty yritystiedot-välilehdelle
 
 #### Työlista
-Työlista-välilehdellä voidaan määritellä, aikataulu projektin kuormitukselle. Aikataulu määritellään viikkonumerolla, joka haetaan Tarjouslaskenta-välilehden Toimitusaika-solusta. Projektin voi merkitä Työlistassa aloitetuksi, valmiiksi,toimitetuksi tai myöhästyneeksi. Vaihtoehtoisesti kun Lähete luodaan, työlistasta haetaan lähetteen projektinumeron perusteella saman projektinumeron rivit ja merkitään automaattisesti aloitettu- , valmis-  ja toimitettu-valintaruudut. Samalla Työlistaan viedään myös toteutunut toimitusaika.
+Työlista-välilehdellä voidaan määritellä, aikataulu projektin kuormitukselle. Aikataulu määritellään viikkonumerolla, joka haetaan Tarjouslaskenta-välilehden Toimitusaika-solusta. Projektin voi halutessaan merkitä työlistassa aloitetuksi, valmiiksi,toimitetuksi tai myöhästyneeksi projektin etenemisen mukaan. Vaihtoehtoisesti kun Lähete luodaan, työlistasta haetaan lähetteen projektinumeron perusteella saman projektinumeron rivit ja merkitään automaattisesti aloitettu- , valmis-  ja toimitettu-valintaruudut. Samalla työlistaan viedään myös toteutunut toimitusaika.
 Projektin työvaiheet menevät eri riveille, jotta työvaiheiden kuormitus pystytään jakamaan jokaiselle vaiheelle erikseen viikkokohtaisesti.
 
 Kun tarjous viedään työlistaan, sovellus kysyy oletko vienyt viimeisimmän version tarjouslistaan. Tämä pitää tarkistaa, jotta työlistaan menevät oikeat tiedot. Tarjousta vietäessä työlistaan työlista käydään läpi duplikaattien varalta. Jos työlistassa on jo työ samalla projektinumerolla, työlistaan vienti perutaan automaattisesti.
@@ -99,28 +99,28 @@ Jos solu taas jää tyhjäksi, sen arvoksi lisätään 0, kun tarjous viedään 
 Päivämäärät pitää olla muodossa YYYY/MM/DD eli vuosi/kuukausi/päivä. Tarjouksen päivämäärän sovellus luo automaattisesti. Toimitusaika muunnetaan automaattisesti tarjouslistassa viikkonumeroksi.
 
 ### Tarjouslista
-Tarjouslistaan vieminen.
+Siirrä tarjouslistaan-painiketta painamalla, tarjouslaskenta-välilehdelle syötetyt rivit viedään tarjouslistaan ja merkitään tarjouslistassa viimeisimmäksi versioksi. Projektinumero, Projektinimi, Asiakkaan viite ja toimitusaika on määritelty.
 
 [![Tarjouslistaan vienti](https://github.com/SavoniaUAS/DiVa-Sheets-ERP/blob/main/Gifs/Käyttöohje/SiirtoTarjouslistaan.gif?raw=true "Tarjouslistaan vienti")](https://github.com/SavoniaUAS/DiVa-Sheets-ERP/blob/main/Gifs/Käyttöohje/SiirtoTarjouslistaan.gif?raw=true "Tarjouslistaan vienti")
 
 ### Luo tarjous, tilausvahvistus ja lähete
 #### Tarjous
-Tarjouksen luominen.
+Tarjous luodaan painamalla Luo Tarjous-painiketta, jolloin tarjous-välilehdelle viedään tarjouslaskenta-välilehdellä olevan projektin tiedot
 
 [![Tarjous](https://github.com/SavoniaUAS/DiVa-Sheets-ERP/blob/main/Gifs/Käyttöohje/LuoTarjous.gif?raw=true "Tarjouslistaan vienti")](https://github.com/SavoniaUAS/DiVa-Sheets-ERP/blob/main/Gifs/Käyttöohje/LuoTarjous.gif?raw=true "Tarjous")
 
 #### Tilausvahvistus
-Tilausvahvistuksen luominen
+Tilausvahvistus luodaan painamalla Luo Tilausvahvistus-painiketta, jolloin tilausvahvistus-välilehdelle viedään tarjouslaskenta-välilehdellä olevan projektin tiedot. Projekti merkitään hyväksytyksi tarjouslistassa.
 
 [![Tilausvahvistus](https://github.com/SavoniaUAS/DiVa-Sheets-ERP/blob/main/Gifs/Käyttöohje/LuoTilausvahvistus.gif?raw=true "Tilausvahvistus")](https://github.com/SavoniaUAS/DiVa-Sheets-ERP/blob/main/Gifs/Käyttöohje/LuoTilausvahvistus.gif?raw=true "Tilausvahvistus")
 
 #### Lähete
-Kun tarjouksen kaikki työvaiheet on valmiita voidaan tarjouksen tiedot viedä Lähete-välilehdelle.
+Kun tarjouksen kaikki työvaiheet on valmiita voidaan tarjouksen tiedot viedä Lähete-välilehdelle painamalla Luo Lähete-painiketta, jolloin lähete-välilehdelle viedään tarjouslaskenta-välilehdellä olevan projektin tiedot. Projekti merkitään työlistassa aloitetuksi, valmiiksi ja toimitetuksi.
 
 [![Lähete](https://github.com/SavoniaUAS/DiVa-Sheets-ERP/blob/main/Gifs/Käyttöohje/LuoLähete.gif?raw=true "Lähete")](https://github.com/SavoniaUAS/DiVa-Sheets-ERP/blob/main/Gifs/Käyttöohje/LuoLähete.gif?raw=true "Lähete")
 
 ### Työlista
-Työlistaan vienti.
+Luo tilausvahvistus-painiketta painamalla tarjouslaskenta-välilehdellä olevat projektin tiedot viedään työlistaan. Työlistassa voidaan kuormittaa työn vaiheet halutuille viikoille ja määritellä, missä vaiheessa projekti on. Projekti merkitään työlistassa aloitetuksi, valmiiksi ja toimitetuksi viimeistään silloin kun lähete luodaan.
 
 [![Työlistaan vienti](https://github.com/SavoniaUAS/DiVa-Sheets-ERP/blob/main/Gifs/Käyttöohje/VieTyoListaan.gif?raw=true "Työlistaan vienti")](https://github.com/SavoniaUAS/DiVa-Sheets-ERP/blob/main/Gifs/Käyttöohje/VieTyoListaan.gif?raw=true "Työlistaan vienti")
 
