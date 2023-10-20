@@ -38,7 +38,6 @@ function saveLahetePDF() {
     headers: { Authorization: 'Bearer ' + ScriptApp.getOAuthToken() },
   });
   var laheteDuplicates = checkLaheteDuplicates();
-  console.log(laheteDuplicates);
   if (laheteDuplicates > 0) {
     var counter = laheteDuplicates + 1;
     getLaheteFolder_(projektinumero)
@@ -54,7 +53,7 @@ function saveLahetePDF() {
 function getLaheteFolder_(projektinumero) {
   var laheteSheet = SpreadsheetApp.getActive().getSheetByName("Lähete");
   var projektinumero = laheteSheet.getRange("D6").getValue()
-  var asiakas = laheteSheet.getRange("B7").getValue();
+  var asiakas = laheteSheet.getRange("B6").getValue();
   const ssId = SpreadsheetApp.getActiveSpreadsheet().getId();
   const parentFolder = DriveApp.getFileById(ssId).getParents().next();
 
@@ -98,15 +97,7 @@ function checkLaheteDuplicates() {
     var name = file.getName();
     names.push(name);
   }
-  for (var i = 0; i < names.length; i++) {
-    console.log(names[i]);
-  }
 
   return names.length;
 }
-
-
-
-
-
 
