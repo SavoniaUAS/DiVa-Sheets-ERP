@@ -14,7 +14,6 @@ function saveTarjousPDF() {
   var aika = new Date();
   var pvm = Utilities.formatDate(aika, "GMT+1", "yyyy/MM/dd");
   const id = SpreadsheetApp.getActive().getId();
-  console.log(id);
   const url =
     'https://docs.google.com/spreadsheets/d/' +
     id +
@@ -38,7 +37,6 @@ function saveTarjousPDF() {
     headers: { Authorization: 'Bearer ' + ScriptApp.getOAuthToken() },
   });
   var tarjousDuplicates = checkTarjousDuplicates();
-  console.log(tarjousDuplicates);
   if (tarjousDuplicates > 0) {
     var counter = tarjousDuplicates + 1;
     getTarjousFolder_(projektinumero)
@@ -55,7 +53,7 @@ function saveTarjousPDF() {
 function getTarjousFolder_(projektinumero) {
   var tarjousSheet = SpreadsheetApp.getActive().getSheetByName("Tarjous");
   var projektinumero = tarjousSheet.getRange("D6").getValue()
-  var asiakas = tarjousSheet.getRange("B7").getValue();
+  var asiakas = tarjousSheet.getRange("B6").getValue();
   const ssId = SpreadsheetApp.getActiveSpreadsheet().getId();
   const parentFolder = DriveApp.getFileById(ssId).getParents().next();
 
@@ -102,16 +100,6 @@ function checkTarjousDuplicates() {
     var name = file.getName();
     names.push(name);
   }
-  for (var i = 0; i < names.length; i++) {
-    console.log(names[i]);
-  }
 
   return names.length;
 }
-
-
-
-
-
-
-
