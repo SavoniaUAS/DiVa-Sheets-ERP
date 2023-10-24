@@ -1,4 +1,5 @@
 # DiVa-Sheets-ERP
+[![DOI](https://zenodo.org/badge/691482271.svg)](https://zenodo.org/doi/10.5281/zenodo.10037101)
 
 Tämä on käyttöönotto-ohje Savonia Ammattikorkeakoulun Digitalisaatio valmistavan teollisuuden yrityksissä-hankkeessa tuotettuun minimalistiseen Google Sheets-pohjaiseen toiminnanohjausjärjestelmään. Kyseisen toiminnanohjausjärjestelmän tarkoitus on simuloida teollista tilaus-tuotanto-toimitus-ketjua pienessä mittakaavassa. Sen lisäksi, että se on toimiva toiminnanohjausjärjestelmä, sen tarkoitus on myös toimia tietojärjestelmien hankintaprosessin kiintopisteenä, kun arvioidaan ostajan tarpeita liiketoimintaprosessien digitalisoimisessa.
 
